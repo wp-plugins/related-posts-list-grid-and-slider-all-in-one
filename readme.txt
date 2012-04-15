@@ -1,4 +1,4 @@
-=== Related Posts All in One - Grid, lsider and list styles ===
+=== Related Posts All in One - with Grid, slider and list styles ===
 Contributors: ashrafweb	
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ashrafweb%40gmail%2ecom&lc=US&item_name=aio%20plugins&item_number=aio&amount=19%2e00&currency_code=USD&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: google, plugin, posts,related, entries, post, pages, page, slider, list, grid, style
