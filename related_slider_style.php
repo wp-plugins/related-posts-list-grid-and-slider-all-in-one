@@ -48,7 +48,7 @@ $aio_related_posts_settings = aio_read_options();
     
 .slider_li{
 	position: relative;
-	background-image: url("wp-content/plugins/aio-related-posts/images/noimage.png");
+	background-image: url("<?php echo $pluginsurl; ?>/images/noimage.png");
 	display: block;
 	cursor:pointer;
 	list-style:none;
