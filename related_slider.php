@@ -46,7 +46,7 @@ include 'the_globals.php';
 <li style="background-image: none" class="slider_li">
 <div id="related_posts_ttc_main_content" class="related_posts_ttc_main_content">
 <div align="left" dir="ltr">
-	<table border="0" width="100%" cellspacing="0" cellpadding="0" dir="rtl">
+	<table border="0" width="100%" cellspacing="0" cellpadding="0" dir="rtl" bgcolor="#FFFFFF" bordercolor="#FFFFFF">
 		<tr>
 			<td height="22px"><?php echo $h3div ?></td>
 			<?php $width = '';
