@@ -1,6 +1,6 @@
 <?php ob_start();
 /*
-Plugin Name: Related Posts All In One by title, category and excerpt
+Plugin Name: All In One Related Posts
 Plugin URI: http://www.aragt.com/aio
 Description: Our plugin displaying related posts in a very great way to help visitors staying longer on your blog. You can use this plugin to increasing the page rank of your internal posts to improve your SEO score
 Version: 1.5
