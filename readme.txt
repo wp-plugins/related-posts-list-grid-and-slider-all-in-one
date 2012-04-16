@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ashra
 Tags: google, plugin, posts,related, entries, post, pages, page, slider, list, grid, style
 Requires at least: 2.9
 Tested up to: 3.3.1
-Stable tag: 1.0
+Stable tag: 1.5
 
 Our plugin displaying related posts in a very great way to help visitors staying longer on your blog. You can use this plugin to increasing the page rank of your internal posts to improve your SEO score.
 
@@ -40,5 +40,6 @@ Thanks!
 
 == Changelog ==
 
-= 1.0 =
-* Initial release
+= 1.5 =
+* css table and td fixed
+* 3.3.1 compatibility fix
