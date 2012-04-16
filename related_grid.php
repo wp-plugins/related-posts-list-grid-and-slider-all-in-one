@@ -30,7 +30,7 @@ include 'the_globals.php';
 			if (!$postimage) {$postimage = $aio_related_posts_settings[thumb_default];$show_noimage_text = 'Yes';}
 			$out_post_thumbnail .= '<img src="'.$postimage.'" alt="'.$title.'" title="'.$title.'" width="'.$aio_related_posts_settings[grid_imagew].'" height="'.$aio_related_posts_settings[grid_imageh].'" border="0" class="grid_image" />';
 		if($show_noimage_text == 'Yes'){
-			$out_post_thumbnail .= '<span class="entry-meta-span">No Image</span>';}
+			$out_post_thumbnail .= '<span id="entry-meta-span" class="entry-meta-span">No Image</span>';}
 		}
 		$comments_count = wp_count_comments($search->ID);
 		$out_post_thumbnail .= '</a><span class="entry-meta"><span class="entry-comments">' .$comments_count->approved .'</span><abbr class="published">' . get_the_date('',$search->ID) . '</abbr></span></div>';	

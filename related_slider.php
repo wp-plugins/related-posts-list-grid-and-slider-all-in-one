@@ -8,9 +8,10 @@ include 'the_globals.php';
 	$searches = get_searches($taglist);
 
     $counter = 1;
-	if($searches){
-	echo '<div id="tips"><h3 class="h3_top_style">'.$aio_related_posts_settings['slider_title'].'</h3><ul id="slider">';
-		foreach($searches as $search) {
+	if($searches){?>
+	
+	<div id="tips"><h3 class='h3-top-style'><?php echo $aio_related_posts_settings['slider_title']; ?></h3><ul id="slider">
+<?php	foreach($searches as $search) {
 		$categorys = get_the_category($search->ID);	//Fetch categories of the plugin
 		$p_in_c = false;	// Variable to check if post exists in a particular category
 		$title = get_the_title($search->ID);
@@ -46,7 +47,7 @@ include 'the_globals.php';
 <li style="background-image: none" class="slider_li">
 <div id="related_posts_ttc_main_content" class="related_posts_ttc_main_content">
 <div align="left" dir="ltr">
-	<table border="0" width="100%" cellspacing="0" cellpadding="0" dir="rtl" bgcolor="#FFFFFF" bordercolor="#FFFFFF">
+	<table border="0" width="100%" cellspacing="0" cellpadding="0" dir="rtl" bgcolor="#FFFFFF" bordercolor="#FFFFFF" style="background-color: #FFFFFF">
 		<tr>
 			<td height="22px"><?php echo $h3div ?></td>
 			<?php $width = '';

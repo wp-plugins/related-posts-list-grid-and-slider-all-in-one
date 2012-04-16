@@ -30,7 +30,7 @@ include 'the_globals.php';
 			if (!$postimage) {$postimage = $aio_related_posts_settings[thumb_default];$show_noimage_text = 'Yes';}
 				$out_post_thumbnail .= '<img src="'.$postimage.'" alt="'.$title.'" title="'.$title.'" width="'.$aio_related_posts_settings[list_imagew].'" height="'.$aio_related_posts_settings[list_imageh].'" class="listimage" />';
 			if($show_noimage_text == 'Yes'){
-			$out_post_thumbnail .= '<span class="entry-meta-span">No Image</span>';}
+			$out_post_thumbnail .= '<span id="entry-meta-span" class="entry-meta-span">No Image</span>';}
 		}
 		$out_post_thumbnail .= '</a></div>';	
     }else{

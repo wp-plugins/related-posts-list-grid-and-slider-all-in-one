@@ -38,6 +38,14 @@ $aio_related_posts_settings = aio_read_options();
 .related_posts_ttc_main_content {
 	text-align:left;
 }
+.related_posts_ttc_main_content table{
+background-color: #ffffff;
+border:0px;
+}
+.related_posts_ttc_main_content table td{
+background-color: #ffffff;
+border:0px;
+}
 .related_posts_ttc_main_content p{
 	color:#4c4c4c;
 }
@@ -99,10 +107,10 @@ text-align:center;
 direction:ltr;
 color:#000000;
 }
-.h3_top_style{
+.h3-top-style{
 text-align:left;
 direction:ltr;
-//font:bold 14px/22px sans-serif;
+font-weight: normal;
 font-size: 90%;
 color: #000000;
 margin:1px;
