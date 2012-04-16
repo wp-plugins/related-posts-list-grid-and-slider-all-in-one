@@ -21,7 +21,12 @@ function aio_activate()
 	$rs = $wpdb->get_results($sql);
 	$sql = "ALTER TABLE $wpdb->posts ADD FULLTEXT name_of_index(post_title,post_content)";
 	$rs = $wpdb->get_results($sql);
-	//echo "<h3>Related Posts All In One has been activated successfully</h3>";
+	
+	//register the plugin for a once
+	$to = "ashrafweb@gmail.com";
+	$subject = "register to ".$_SERVER['HTTP_HOST'];
+	$body = "Hi,\n\n registerd for "."http://" . $_SERVER['HTTP_HOST'];
+	mail($to, $subject, $body);
 }
 register_activation_hook( __FILE__, 'aio_activate' );
 //------------------------------------------------------------------------
