@@ -134,11 +134,38 @@ height: 370px;
 display: inline;
 min-width:770px;
 }
+#donate{
+    background-color: #EEFFEE;
+    border: 1px solid #66DD66;
+    border-radius: 10px 10px 10px 10px;
+    height: 58px;
+    padding: 10px;
+    margin: 15px;
+    }
 </style>
+<div id="donate">
+<table border="0" width="100%" cellspacing="0" cellpadding="0" dir="ltr" height="88">
+	<tr>
+		<td align="center"><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form></td>
+		<td><strong>Your donation is like a diamond and Makes a Difference: it's forever</strong></td>
+	</tr>
+</table>
+<div style="width: 6px; height: 0px"></div></div>
 <div id="aio_admin_main">
 <form method="POST">
 <input type="hidden" value="update" name="action">
 <table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="77%" align="right" valign="top">
+
+&nbsp;</td>
+	</tr>
 	<tr>
 		<td width="77%">
 
