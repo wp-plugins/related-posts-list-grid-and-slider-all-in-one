@@ -41,10 +41,12 @@ $aio_related_posts_settings = aio_read_options();
 .related_posts_ttc_main_content table{
 background-color: #ffffff;
 border:0px;
+margin:0px;
 }
 .related_posts_ttc_main_content table td{
 background-color: #ffffff;
 border:0px;
+margin:0px;
 }
 .related_posts_ttc_main_content p{
 	color:#4c4c4c;
@@ -97,7 +99,6 @@ box-shadow: 0 0 <?php echo $css3_shadow; ?>px #666666;
 <?php } ?>
 .h3_title{
 text-align:left;
-//font-size: 120%;
 direction:ltr;
 padding-top:5px;
 font:bold 120%/22px sans-serif;
@@ -107,17 +108,29 @@ text-align:center;
 direction:ltr;
 color:#000000;
 }
-.h3-top-style{
-text-align:left;
-direction:ltr;
-font-weight: normal;
-font-size: 90%;
-color: #000000;
-margin:1px;
-height:26px;
-padding-top:5px;
-background-color: #F0F0F0;
+#tips h3{
+	text-align:left;
+	direction:ltr;
+	font-weight: normal;
+	font-size: 90%;
+	color: #000000;
+	margin:1px;
+	height:26px;
+	padding-top:5px;
+	background-color: #F0F0F0;
 }
+.h3-top-style{
+	text-align:left;
+	direction:ltr;
+	font-weight: normal;
+	font-size: 90%;
+	color: #000000;
+	margin:1px;
+	height:26px;
+	padding-top:5px;
+	background-color: #F0F0F0;
+}
+
 .excerpt_span{
 color: #000000;
 text-align:left;

@@ -14,12 +14,12 @@ $aio_related_posts_settings = aio_read_options();
 }
 .related_posts_ttc_main_image img{
     background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid #CCCCCC;
+   // border: 1px solid #CCCCCC;
     margin: 0px 0px 0px 0px;
     padding: 0px;
 }
-.related_posts_ttc_main_image a:hover img{
-    border: 1px solid #CCCCCC;
+.related_posts_ttc_main_image a img{
+//border: 3px solid #f5f5f5;
 }
 <?php 
 $css3_shadow = $aio_related_posts_settings['list_css3_effect'];
@@ -50,6 +50,8 @@ behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
 #related_posts_ttc h3{
 	text-align:left;
 	direction:ltr;
+	width:88%;
+	font-size:14px;
 }
 .related_posts_ttc_main_content {
 	text-align:left;
@@ -74,6 +76,7 @@ behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
 	padding-right: 5px !important;
 	padding-bottom:<?php echo $aio_related_posts_settings['list_vspace']; ?>px;
 	padding-left:10px;
+	margin:0px;
 
 	-moz-transition: all 0.3s ease-out 0.2s;
 }
@@ -90,7 +93,7 @@ behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
     width: 97%;
     z-index: 99999;
 }
-#related_posts_ttc li:hover{background:#F4F4F4;-moz-transition: all 0.3s ease-out 0s;}
+#related_posts_ttc li:hover{background:#F9F9F9;-moz-transition: all 0.3s ease-out 0s;}
 </style>
 <?php
 $out = ob_get_clean();
