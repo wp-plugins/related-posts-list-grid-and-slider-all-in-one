@@ -51,7 +51,7 @@ behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
 	text-align:left;
 	direction:ltr;
 	width:88%;
-	font-size:14px;
+	font-size: 14px;
 }
 .related_posts_ttc_main_content {
 	text-align:left;
