@@ -115,7 +115,7 @@ function aio_read_options()
 //-------------------------------------------------------Set default values to the array
 function aio_default_options(){
 	$thumb_default = $pluginsurl.'/images/noimage.png';
-	if($thumb_default
+	
 	$aio_related_posts_settings = 
 	Array (
 			'list_title' => 'Related Posts:', // Title of the list related posts block
