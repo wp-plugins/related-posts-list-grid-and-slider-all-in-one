@@ -116,7 +116,6 @@ function aio_read_options()
 function aio_default_options(){
 	$pluginsurl = plugins_url( '', __FILE__ );
 	$thumb_default = $pluginsurl.'/images/noimage.png';
-	if($pluginsurl == ''){}
 	$aio_related_posts_settings = 
 	Array (
 			'list_title' => 'Related Posts:', // Title of the list related posts block
@@ -146,7 +145,8 @@ function aio_default_options(){
 			'slider_css3_effect' => 'None', // CSS3 No Effect as default
 			'thumb_default' => $thumb_default, // Default thumbnail image
 			'use_css3_effects' => 'Yes', // Default thumbnail image
-			'related_posts_type' => 'related_list' // Default thumbnail image
+			'related_posts_type' => 'related_list', // Default thumbnail image
+			'print_credits_link' => 'yes'
 		);
 	return $aio_related_posts_settings;
 }

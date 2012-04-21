@@ -72,6 +72,7 @@ if($_POST["action"] == 'update')
 	//-----------------------------------------------------Get general options array values
 	$thumb_default = $_POST["thumb_default"];
 	$use_css3_effects = $_POST["use_css3_effects"];
+	$print_credits_link = $_POST["print_credits_link"];
 	if($thumb_default == ''){$thumb_default = $pluginsurl.'/images/noimage.png';}
 
 $aio_related_posts_settings = 
@@ -102,7 +103,8 @@ Array (
 		'slider_css3_effect' => $slider_css3_effect,
 		'thumb_default' => $thumb_default, // Default thumbnail image
 		'use_css3_effects' => $use_css3_effects, // Default thumbnail image
-		'related_posts_type' => $related_posts_type // Default thumbnail image
+		'related_posts_type' => $related_posts_type, // Default thumbnail image
+		'print_credits_link' => $print_credits_link
 	);
 	if ($aio_related_posts_settings != '' ) {
 	    update_option( 'aio_settings' , $aio_related_posts_settings );
@@ -478,6 +480,9 @@ min-width:770px;
 				<td align="center" width="40%">&nbsp;<?php echo "<img src='$pluginsurl/images/rslider2.png' align='center' />";?></td>
 			</tr>
 	</table>
+<?php $checkvalue = ''; if ($aio_related_posts_settings['print_credits_link'] == 'yes') { $checkvalue = 'checked';}?>
+	<p><input type="checkbox" name="print_credits_link" value="yes" <?php echo $checkvalue ?>>Show 
+	credits link to support us</p>
 
 	<p align="right">
 				<input type="submit" value="     Save all Settings     " name="B4" style="width: 193; height: 29; border: 1px solid #008000; padding-left: 4px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px">&nbsp;&nbsp;

@@ -48,7 +48,9 @@ include 'the_globals.php';
 
 	if ($search_counter == $limit) break;	// End loop when related posts limit is reached
 		} //end of foreach loop
-	echo '</ul></div>';
+			$credits_link = '<p align="right"><font color="#8B8B8B" style="font-size: 11pt">by <a href="http://www.aragt.com/aio"><font color="#8B8B8B">aio</font></a></font></p>';
+		if($aio_related_posts_settings[print_credits_link] != 'yes') $credits_link = '';
+	echo '</ul>' .$credits_link. '</div>';
 	}//end of searches if statement
 	else{
 		echo '<p>No related posts found</p>';
