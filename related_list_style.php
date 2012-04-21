@@ -50,8 +50,10 @@ behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
 #related_posts_ttc h3{
 	text-align:left;
 	direction:ltr;
-	width:88%;
 	font-size: 14px;
+}
+#related_posts_ttc ul h3{
+	width:88%;
 }
 .related_posts_ttc_main_content {
 	text-align:left;
