@@ -43,3 +43,4 @@ Thanks!
 = 1.5 =
 * css table and td fixed
 * 3.3.1 compatibility fix
+* Update sql code to get more equivalent results
