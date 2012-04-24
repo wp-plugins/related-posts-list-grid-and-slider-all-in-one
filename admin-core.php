@@ -27,7 +27,7 @@ if($_POST["action"] == 'update')
 	if($list_imagew == ''){$list_imagew = '85';}
 	if($list_imageh == ''){$list_imageh = '85';}
 	if($list_vspace == ''){$list_vspace = '2';}
-	if($list_custom_image == ''){$list_custom_image = 'No';}
+	if($list_custom_image == ''){$list_custom_image = 'Image';}
 	if($list_posts_limit == ''){$list_posts_limit = '5';}
 	if($list_css3_effect == ''){$list_css3_effect = 'None';}
 	if($list_excerpt_length == ''){$list_excerpt_length = '18';}
@@ -49,7 +49,7 @@ if($_POST["action"] == 'update')
 	if($grid_imageh == ''){$grid_imageh = '85';}
 	if($grid_vspace == ''){$grid_vspace = '33';}
 	if($grid_hspace == ''){$grid_hspace = '33';}
-	if($grid_custom_image == ''){$grid_custom_image = 'No';}
+	if($grid_custom_image == ''){$grid_custom_image = 'Image';}
 	if($grid_posts_limit == ''){$grid_posts_limit = '6';}
 	//-----------------------------------------------------get slider options array values
 	$slider_title = $_POST["slider_title"];
@@ -66,7 +66,7 @@ if($_POST["action"] == 'update')
 	if($slider_show_images == ''){$slider_show_images = 'Yes';}
 	if($slider_imagew == ''){$slider_imagew = '85';}
 	if($slider_imageh == ''){$slider_imageh = '85';}
-	if($slider_custom_image == ''){$slider_custom_image = 'None';}
+	if($slider_custom_image == ''){$slider_custom_image = 'Image';}
 	if($slider_posts_limit == ''){$slider_posts_limit = '5';}
 	if($slider_css3_effect == ''){$slider_css3_effect = 'None';}
 	//-----------------------------------------------------Get general options array values
@@ -240,7 +240,7 @@ min-width:770px;
 				<td width="177" colspan="2">Use custom image field</td>
 				<td width="178">
 				<input type="text" name="list_custom_image" size="12" value="<?php echo $aio_related_posts_settings['list_custom_image']; ?>"></td>
-				<td width="125"><font color="#008000">Default: None</font></td>
+				<td width="125"><font color="#008000">Default: Image</font></td>
 			</tr>
 			<tr>
 				<td width="177" colspan="2">Posts limit</td>
@@ -346,7 +346,7 @@ min-width:770px;
 				<td width="177">Use custom image field</td>
 				<td>
 				<input type="text" name="grid_custom_image" size="12" value="<?php echo $aio_related_posts_settings['grid_custom_image']; ?>"></td>
-				<td width="153"><font color="#008000">Default: None</font></td>
+				<td width="153"><font color="#008000">Default: Image</font></td>
 			</tr>
 			<tr>
 				<td width="177">Posts limit</td>
@@ -439,7 +439,7 @@ min-width:770px;
 				<td width="177">Use custom image field</td>
 				<td>
 				<input type="text" name="slider_custom_image" size="12" value="<?php echo $aio_related_posts_settings['slider_custom_image']; ?>"></td>
-				<td width="125"><font color="#008000">Default: None</font></td>
+				<td width="125"><font color="#008000">Default: Image</font></td>
 			</tr>
 			<tr>
 				<td width="177">Posts limit</td>
