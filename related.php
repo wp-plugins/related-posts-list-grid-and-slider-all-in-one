@@ -123,7 +123,7 @@ function aio_default_options(){
 			'list_imagew' => '85', // Thumbnail image width
 			'list_imageh' => '85', // Thumbnail image height
 			'list_vspace' => '2', // Space between rows
-			'list_custom_image' => 'None', // Use custom field to display images?
+			'list_custom_image' => 'Image', // Use custom field to display images?
 			'list_posts_limit' => '5', // How many posts to display?
 			'list_css3_effect' => 'None', // CSS3 No Effect as default
 			'list_excerpt_length' => '22',
@@ -133,14 +133,14 @@ function aio_default_options(){
 			'grid_imageh' => '110', // Thumbnail image height
 			'grid_vspace' => '25', // Space between rows
 			'grid_hspace' => '30', // Space between items
-			'grid_custom_image' => 'None', // Use custom field to display images
+			'grid_custom_image' => 'Image', // Use custom field to display images
 			'grid_posts_limit' => '6', // How many posts to display in the grid view?
 			'grid_css3_effect' => 'None', // CSS3 No Effect as default
 			'slider_title' => 'Related Posts:', // Title of the slider related posts block
 			'slider_show_images' => 'Yes', // Display images or not?
 			'slider_imagew' => '85', // Thumbnail image width
 			'slider_imageh' => '85', // Thumbnail image height
-			'slider_custom_image' => 'None', // Use custom field to display images
+			'slider_custom_image' => 'Image', // Use custom field to display images
 			'slider_posts_limit' => '5', // How many posts to display in the slider view?
 			'slider_css3_effect' => 'None', // CSS3 No Effect as default
 			'thumb_default' => $thumb_default, // Default thumbnail image
@@ -205,9 +205,9 @@ function get_searches($taglist)
 	$time_difference = get_settings('gmt_offset');
 	$now = gmdate("Y-m-d H:i:s",(time()+($time_difference*3600)));
 	$stuff = addslashes($post->post_title);
-	$stuff = addslashes($post->post_title. ' ' . $post->post_content);
-	if ((is_int($post->ID))&&($stuff != '')) {
-		$sql = "SELECT DISTINCT ID,post_title,post_date "
+	//$stuff = '';
+	if ((is_int($post->ID))) {
+		$sql = "SELECT DISTINCT ID,post_title,post_date,MATCH (post_title,post_content) AGAINST ('".$stuff."') AS score "
 		. "FROM ". "$wpdb->posts , $wpdb->term_taxonomy t_t, $wpdb->term_relationships t_r"
 		." WHERE "
 		." (t_t.taxonomy ='post_tag' AND t_t.term_taxonomy_id = t_r.term_taxonomy_id AND t_r.object_id  = ID AND (t_t.term_id IN ($taglist)) "
@@ -216,7 +216,7 @@ function get_searches($taglist)
 		. "AND post_status = 'publish' "
 		. "AND id != ".$post->ID." "
 		."AND post_type = 'post' "
-		." order by id desc "
+		." order by score*id desc "
 		."LIMIT ".$limit;
 		$search_counter = 0;
 		$searches = $wpdb->get_results($sql);
