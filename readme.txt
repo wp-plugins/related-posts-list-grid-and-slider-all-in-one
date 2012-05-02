@@ -39,6 +39,9 @@ Thanks!
 
 
 == Changelog ==
+= 1.5 =
+* css table and td fixed
+* 3.3.1 compatibility fix
 
 = 1.6 =
 * changing priority of results order

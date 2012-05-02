@@ -34,21 +34,21 @@ include 'the_globals.php';
 		}
 		$out_post_thumbnail .= '</a></div>';	
     }else{
-		//$out_post_thumbnail = '<div class="no_style_img"><img src="'. $pluginsurl .'/images/bullet.jpg"/></div>';
-		//$out_post_thumbnail = '<div class="counter_num"><font size="4">'. $counter++ .'. </font></div>';
+		//$out_post_thumbnail = '<span class="no_style_img"><img src="'. $pluginsurl .'/images/bullet.jpg"/></span>';
+		//$out_post_thumbnail = '<span class="counter_num"><font size="4">'. $counter++ .'. </font></span>';
 		$out_post_thumbnail = '';
 	}
 	echo $out_post_thumbnail;
-    echo '<div class="related_posts_ttc_main_content">';
+    echo '<span class="related_posts_ttc_main_content">';
     echo '<h3><a href="'; echo get_permalink($search->ID); echo '" rel="bookmark" title="'; the_title(); echo '">'; echo $title; echo '</a></h3>';
     echo aio_excerpt($search->ID,$aio_related_posts_settings['list_excerpt_length']);
-    echo '<div class="related_posts_ttc_time">'. get_the_time('M j, Y',$search->ID) .'</div>';
-    echo "</div>";
+    echo '<span class="related_posts_ttc_time">'. get_the_time('M j, Y',$search->ID) .'</span>';
+    echo "</span>";
     echo "</li>";
 
 	if ($search_counter == $limit) break;	// End loop when related posts limit is reached
 		} //end of foreach loop
-			$credits_link = '<p align="right"><font color="#8B8B8B" style="font-size: 11pt">by <a href="http://www.aragt.com/aio"><font color="#8B8B8B">aio</font></a></font></p>';
+			$credits_link = '<p align="right"><font color="#8B8B8B" style="font-size: 11pt">by <a href="http://www.aragt.com/aio/"><font color="#8B8B8B">Best related posts</font></a></font></p>';
 		if($aio_related_posts_settings[print_credits_link] != 'yes') $credits_link = '';
 	echo '</ul>' .$credits_link. '</div>';
 	}//end of searches if statement
