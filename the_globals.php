@@ -14,4 +14,7 @@ $tags = wp_get_post_tags($post->ID);
 			$taglist = $taglist . ", '" . $tags[$i]->term_id . "'";
 		}
 	}
+$reg_exp = '|<img.*?src=[\'"](.*?)[\'"].*?>|';
+$new_reg_exp = '@<img.+src="(.*)".*>@Uims';
+
 ?>

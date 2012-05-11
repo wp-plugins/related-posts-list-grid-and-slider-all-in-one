@@ -47,3 +47,4 @@ Thanks!
 * changing priority of results order
 * css style more compatibility fix with most themes
 * Update sql code to get more equivalent results
+* abbility to extract images from post content if there is no featured image set!

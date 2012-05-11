@@ -51,6 +51,9 @@ behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
 	text-align:left;
 	direction:ltr;
 	font-size: 14px;
+	border: medium none;
+	padding: 0px;
+	margin: 0px;
 }
 #related_posts_ttc ul h3{
 	width:88%;
@@ -69,6 +72,7 @@ behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
 }
 	
 #related_posts_ttc li{
+	text-align:left;
 	position: relative;display: block;
 	cursor:pointer;
 	list-style:none;
@@ -79,7 +83,6 @@ behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
 	padding-bottom:<?php echo $aio_related_posts_settings['list_vspace']; ?>px;
 	padding-left:10px;
 	margin:0px;
-
 	-moz-transition: all 0.3s ease-out 0.2s;
 }
 #entry-meta-span {
