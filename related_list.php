@@ -27,8 +27,15 @@ include 'the_globals.php';
 		} else {
 			$postimage = get_post_meta($search->ID, $aio_related_posts_settings[list_custom_image], true);
 			$show_noimage_text = 'No';
+			if (!$postimage) 
+				{
+				preg_match_all( $reg_exp, get_post($search->ID)->post_content, $matches );
+				// any image there?
+				if( isset( $matches ) && $matches[1][0] ) {
+					$postimage = $matches[1][0]; // this give the first image only
+				}}
 			if (!$postimage) {$postimage = $aio_related_posts_settings[thumb_default];$show_noimage_text = 'Yes';}
-				$out_post_thumbnail .= '<img src="'.$postimage.'" alt="'.$title.'" title="'.$title.'" width="'.$aio_related_posts_settings[list_imagew].'" height="'.$aio_related_posts_settings[list_imageh].'" class="listimage" />';
+				$out_post_thumbnail .= '<img src="'.$postimage.'" alt="'.$title.$new_img_src.'" title="'.$title.$new_img_src.'" width="'.$aio_related_posts_settings[list_imagew].'" height="'.$aio_related_posts_settings[list_imageh].'" class="listimage" />';
 			if($show_noimage_text == 'Yes'){
 			$out_post_thumbnail .= '<span id="entry-meta-span" class="entry-meta-span">No Image</span>';}
 		}
