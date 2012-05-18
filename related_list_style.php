@@ -14,7 +14,6 @@ $aio_related_posts_settings = aio_read_options();
 }
 .related_posts_ttc_main_image img{
     background: none repeat scroll 0 0 #FFFFFF;
-   // border: 1px solid #CCCCCC;
     margin: 0px 0px 0px 0px;
     padding: 0px;
 }
@@ -84,6 +83,11 @@ behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
 	padding-left:10px;
 	margin:0px;
 	-moz-transition: all 0.3s ease-out 0.2s;
+}
+#related_posts_ttc li img{
+    background: none repeat scroll 0 0 #FFFFFF;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
 }
 #entry-meta-span {
     background: none repeat scroll 0 0 #000000;
