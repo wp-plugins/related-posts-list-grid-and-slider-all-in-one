@@ -35,7 +35,7 @@ include 'the_globals.php';
 					$postimage = $matches[1][0]; // this give the first image only
 					preg_match_all( $new_reg_exp, get_post($search->ID)->post_content, $matches2 );
 					$new_img_src = $matches2[1][0];
-					echo $new_img_src;
+					//echo $new_img_src;
 					//will resize the image here
 				}}
 			if (!$postimage) {$postimage = $aio_related_posts_settings[thumb_default];$show_noimage_text = 'Yes';}
