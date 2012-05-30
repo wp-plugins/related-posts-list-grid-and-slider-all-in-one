@@ -26,6 +26,11 @@ The plugin will only match the post title, meta keywords and post tags of the po
 **Easy to Install**:
 Read the installation steps to find that this plugin does not need any coding or theme editing, just use your mouse
 
+== Screenshots ==
+**How to install the plugin**
+1. How to install the plugin
+2. activating the plugin
+
 == Installation ==
 For detailed description and installation details of the plugin visit plugin page at[Related post All in One](http://www.aragt.com/aio/).
 
