@@ -33,13 +33,13 @@ Read the installation steps to find that this plugin does not need any coding or
 4. Final result (related posts as a list)
 
 == Installation ==
-For detailed description and installation details of the plugin visit plugin page at[Related post All in One](http://www.aragt.com/aio/).
+*For detailed description and installation details of the plugin visit plugin page at[Related post All in One](http://www.aragt.com/aio/).
 
-1.Download the package.
-2.Extract the contents of aio-related-posts.zip to wp-content/plugins/ folder  You should get a folder called aio-related-posts
-3.Activate the Plugin in WP-Admin.
-4.Goto Settings > All In One Related Posts to configure options.
-5.You will find 3 modes, after choosing your mode make changes to its own options to match your needs and save the changes
+*1.Download the package.
+*2.Extract the contents of aio-related-posts.zip to wp-content/plugins/ folder  You should get a folder called aio-related-posts
+*3.Activate the Plugin in WP-Admin.
+*4.Goto Settings > All In One Related Posts to configure options.
+*5.You will find 3 modes, after choosing your mode make changes to its own options to match your needs and save the changes
 Thanks!
 
 
