@@ -2,6 +2,7 @@
 //define all variables the needed alot
 include 'the_globals.php';
 $postimage = '';
+$dont_show_image = '';
 ?>
 <?php
 	$aio_related_posts_settings = aio_read_options();
@@ -18,16 +19,12 @@ $postimage = '';
 		//---------------------------------
 		echo '<li style="background-image: none">';
 	if($aio_related_posts_settings['list_show_images'] == 'Yes'){
-    	$out_post_thumbnail = '<div class="related_posts_ttc_main_image"><a href="'
-    	.get_permalink($search->ID)
-    	.'" rel="bookmark" title="'
-    	.$title
-    	.'">';
+    	$out_post_thumbnail = '<div class="related_posts_ttc_main_image"><a href="'.get_permalink($search->ID).'" rel="related" title="'.$title.'">';
     if ((function_exists('has_post_thumbnail')) && (has_post_thumbnail($search->ID))) {
 				$out_post_thumbnail .= get_the_post_thumbnail( $search->ID, array($aio_related_posts_settings[list_imagew],$aio_related_posts_settings[list_imageh]), array('title' => $title,'alt' => $title,'class' => 'listimage','border' => '0'));
 		} else {
 			$postimage = get_post_meta($search->ID, $aio_related_posts_settings[list_custom_image], true);
-			$show_noimage_text = 'No';
+			$dont_show_image = 'No';
 			if (!$postimage) 
 				{
 				preg_match_all( $reg_exp, get_post($search->ID)->post_content, $matches );
@@ -39,7 +36,8 @@ $postimage = '';
 					//echo $new_img_src;
 					//will resize the image here
 				}}
-			if (!$postimage) {$dont_show_image = 'Yes';}
+			$out_post_thumbnail .= '<img src="'.$postimage.'" alt="'.$title.$new_img_src.'" title="'.$title.$new_img_src.'" width="'.$aio_related_posts_settings[list_imagew].'" height="'.$aio_related_posts_settings[list_imageh].'" class="listimage" />';
+		if (!$postimage) {$dont_show_image = 'Yes';}
 		}//of line 27
 		$out_post_thumbnail .= '<span id="entry-meta-span" class="entry-meta-span">'. get_the_time('M j, Y',$search->ID) .'</span>';
 		$out_post_thumbnail .= '</a></div>';
