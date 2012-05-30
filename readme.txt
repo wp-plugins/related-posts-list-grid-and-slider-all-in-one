@@ -9,8 +9,8 @@ Stable tag: 1.7
 Our plugin displaying related posts in a very great way to help visitors staying longer on your blog. You can use this plugin to increasing the page rank of your internal posts to improve your SEO score.
 
 == Description ==
-For detailed description of the plugin visit plugin page at[Related post All in One](http://www.aragt.com/aio/).
-
+For detailed description of the plugin visit plugin page at [Related post All in One](http://www.aragt.com/aio/).
+or at the home page [aragt soft](http://www.aragt.com/)
 **Improve your seo score in Google and Yahoo and other SE's**:
 Our plugin displaying related posts in a very great way to help visitors staying longer on your blog. You can use this plugin to increasing the page rank of your internal posts to improve your SEO score
 
