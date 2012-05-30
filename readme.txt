@@ -29,6 +29,8 @@ Read the installation steps to find that this plugin does not need any coding or
 == Screenshots ==
 1. How to install the plugin
 2. activating the plugin
+3. Final result (related posts as a grid)
+4. Final result (related posts as a list)
 
 == Installation ==
 For detailed description and installation details of the plugin visit plugin page at[Related post All in One](http://www.aragt.com/aio/).
