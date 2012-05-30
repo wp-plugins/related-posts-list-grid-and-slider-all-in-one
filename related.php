@@ -3,7 +3,7 @@
 Plugin Name: All In One Related Posts
 Plugin URI: http://www.aragt.com/aio
 Description: Our plugin displaying related posts in a very great way to help visitors staying longer on your blog. You can use this plugin to increasing the page rank of your internal posts to improve your SEO score
-Version: 1.6
+Version: 1.7
 Author: aragt
 Author URI: http://www.aragt.com/aio
 */

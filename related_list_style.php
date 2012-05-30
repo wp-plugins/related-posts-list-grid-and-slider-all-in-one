@@ -73,7 +73,6 @@ behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
 #related_posts_ttc li{
 	text-align:left;
 	position: relative;display: block;
-	cursor:pointer;
 	list-style:none;
 	border-bottom:1px solid #EBDDE2;
 	height: 110px;
@@ -82,7 +81,6 @@ behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
 	padding-bottom:<?php echo $aio_related_posts_settings['list_vspace']; ?>px;
 	padding-left:10px;
 	margin:0px;
-	-moz-transition: all 0.3s ease-out 0.2s;
 }
 #related_posts_ttc li img{
     background: none repeat scroll 0 0 #FFFFFF;
@@ -93,16 +91,20 @@ behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
     background: none repeat scroll 0 0 #000000;
     color: #CCCCCC;
     display: block;
-    font-weight: 700;
-    height: 25px;
-    margin: -42px 0 0;
-    opacity: 0.5;
+    font-size: 11px;
+    height: 20px;
+    margin: -20px 0 0;
+    opacity: 0.65;
     position: relative;
     text-align: center;
-    width: 97%;
+    width: 100%;
     z-index: 99999;
+    border-radius: 15px 15px 15px 15px;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+    -khtmlborder-radius: 15px 15px 15px 15px;
 }
-#related_posts_ttc li:hover{background:#F9F9F9;-moz-transition: all 0.3s ease-out 0s;}
+//#related_posts_ttc li:hover{background:#F9F9F9;-moz-transition: all 0.3s ease-out 0s;}
 </style>
 <?php
 $out = ob_get_clean();

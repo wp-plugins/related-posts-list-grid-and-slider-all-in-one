@@ -3,8 +3,8 @@ Contributors: ashrafweb
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ashrafweb%40gmail%2ecom&lc=US&item_name=aio%20plugins&item_number=aio&amount=19%2e00&currency_code=USD&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: google, plugin, posts,related, entries, post, pages, page, slider, list, grid, style
 Requires at least: 2.9
-Tested up to: 3.3.1
-Stable tag: 1.6
+Tested up to: 3.3.2
+Stable tag: 1.7
 
 Our plugin displaying related posts in a very great way to help visitors staying longer on your blog. You can use this plugin to increasing the page rank of your internal posts to improve your SEO score.
 
@@ -47,3 +47,9 @@ Thanks!
 * changing priority of results order
 * css style more compatibility fix with most themes
 * Update sql code to get more equivalent results
+* abbility to extract images from post content if there is no featured image set!
+
+=1.7=
+* CSS Style fixing
+* Image display Fix
+* New way of calculating image views

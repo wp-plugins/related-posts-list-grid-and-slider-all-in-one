@@ -1,6 +1,7 @@
 <?php ob_start();
 //define all variables the needed alot
 include 'the_globals.php';
+$postimage = '';
 ?>
 <?php
 	$aio_related_posts_settings = aio_read_options();
@@ -35,25 +36,21 @@ include 'the_globals.php';
 					$postimage = $matches[1][0]; // this give the first image only
 					preg_match_all( $new_reg_exp, get_post($search->ID)->post_content, $matches2 );
 					$new_img_src = $matches2[1][0];
-					echo $new_img_src;
+					//echo $new_img_src;
 					//will resize the image here
 				}}
-			if (!$postimage) {$postimage = $aio_related_posts_settings[thumb_default];$show_noimage_text = 'Yes';}
-				$out_post_thumbnail .= '<img src="'.$postimage.'" alt="'.$title.$new_img_src.'" title="'.$title.$new_img_src.'" width="'.$aio_related_posts_settings[list_imagew].'" height="'.$aio_related_posts_settings[list_imageh].'" class="listimage" />';
-			if($show_noimage_text == 'Yes'){
-			$out_post_thumbnail .= '<span id="entry-meta-span" class="entry-meta-span">No Image</span>';}
-		}
-		$out_post_thumbnail .= '</a></div>';	
-    }else{
-		//$out_post_thumbnail = '<span class="no_style_img"><img src="'. $pluginsurl .'/images/bullet.jpg"/></span>';
-		//$out_post_thumbnail = '<span class="counter_num"><font size="4">'. $counter++ .'. </font></span>';
+			if (!$postimage) {$dont_show_image = 'Yes';}
+		}//of line 27
+		$out_post_thumbnail .= '<span id="entry-meta-span" class="entry-meta-span">'. get_the_time('M j, Y',$search->ID) .'</span>';
+		$out_post_thumbnail .= '</a></div>';
+		if ($dont_show_image == 'Yes') $out_post_thumbnail = '';
+    }else{//for line 19 if
 		$out_post_thumbnail = '';
 	}
 	echo $out_post_thumbnail;
     echo '<span class="related_posts_ttc_main_content">';
-    echo '<h3><a href="'; echo get_permalink($search->ID); echo '" rel="bookmark" title="'; the_title(); echo '">'; echo $title; echo '</a></h3>';
+    echo '<p><a href="'; echo get_permalink($search->ID); echo '" rel="related" title="'; the_title(); echo '">'; echo $title; echo '</a></p>';
     echo aio_excerpt($search->ID,$aio_related_posts_settings['list_excerpt_length']);
-    echo '<span class="related_posts_ttc_time">'. get_the_time('M j, Y',$search->ID) .'</span>';
     echo "</span>";
     echo "</li>";
 
