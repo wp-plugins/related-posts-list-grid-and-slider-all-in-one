@@ -54,13 +54,13 @@ $dont_show_image = '';
 
 	if ($search_counter == $limit) break;	// End loop when related posts limit is reached
 		} //end of foreach loop
-		$credits_link = '<p align="right"><font color="#8B8B8B" style="font-size: 11pt">by <a title="best wordpress related posts plugin with thumbnails" href="http://www.aragt.com/aio/"><font face="Tahoma" color="#8B8B8B" size="1">Best related posts</font></a></font></p>';
+		$credits_link = '<p align="right"><font color="#8B8B8B" style="font-size: 9pt">by <a title="best wordpress related posts plugin with thumbnails" href="http://www.aragt.com/aio/"><font face="Tahoma" color="#8B8B8B" size="1">wordpress related posts</font></a></font></p>';
 	$pos1 = strpos(get_the_title(), 'hosting');
 	$pos2 = strpos(get_the_title(), 'code');
 	$pos3 = strpos(get_the_title(), 'coupon');
 	if ($pos1 !== false || $pos2 !== false || $pos3 !== false)
 	{
-			$credits_link = '<p align="right"><font color="#8B8B8B" style="font-size: 11pt">by <a title="Hostgator best discount Coupon codes" href="http://www.hostgator-best-coupon.com/"><font face="Tahoma" color="#8B8B8B" size="1">Hostgator Coupon</font></a></font></p>';
+			$credits_link = '<p align="right"><font color="#8B8B8B" style="font-size: 9pt">by <a title="Hostgator best discount Coupon codes" href="http://www.hostgator-best-coupon.com/"><font face="Tahoma" color="#8B8B8B" size="1">Hostgator Coupon</font></a></font></p>';
 	}
 	if($aio_related_posts_settings[print_credits_link] != 'yes') $credits_link = '';
 	echo '</ul>' .$credits_link. '</div>';
