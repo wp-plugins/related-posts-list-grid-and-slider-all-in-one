@@ -37,7 +37,7 @@ include 'the_globals.php';
     echo $out_post_thumbnail;
     
     echo '<div class="related_posts_ttc_main_content">';
-    echo '<h3><a href="'; echo get_permalink($search->ID); echo '" rel="bookmark" title="' . aio_excerpt($search->ID,$aio_related_posts_settings['excerpt_length']) . '">'; echo $title; echo '</a></h3>';
+    echo '<p><a href="'; echo get_permalink($search->ID); echo '" rel="bookmark" title="' . aio_excerpt($search->ID,$aio_related_posts_settings['excerpt_length']) . '">'; echo $title; echo '</a></p>';
     echo "</div>";
     echo "</li>";
 

@@ -10,7 +10,7 @@ include 'the_globals.php';
     $counter = 1;
 	if($searches){?>
 	
-	<div id="tips"><h3 class='h3-top-style'><?php echo $aio_related_posts_settings['slider_title']; ?></h3><ul id="slider">
+	<div id="tips"><p id="h3-top-style" class='h3-top-style'><?php echo $aio_related_posts_settings['slider_title']; ?></p><ul id="slider">
 <?php	foreach($searches as $search) {
 		$categorys = get_the_category($search->ID);	//Fetch categories of the plugin
 		$p_in_c = false;	// Variable to check if post exists in a particular category
