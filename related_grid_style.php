@@ -51,7 +51,7 @@ html[xmlns] .clearfix {
 }
 #related_posts_ttc ul li {
     display: inline;
-      height: 200px;
+    height: 200px;
 	width: <?php echo $aio_related_posts_settings[grid_imagew]+5; ?>px;
 	position:relative;
 	margin-top:0px;
@@ -112,7 +112,7 @@ height:100%;
     border-bottom: medium none;
     color: #999999;
     float: right;
-    font-size: 10px;
+    font-size: 9px;
     margin: 6px 3px 0;
     text-transform: uppercase;
 }
@@ -152,7 +152,7 @@ height:100%;
     opacity: 0.3;
 }
 .posts-default .entry-comments, .posts-quick .entry-comments {
-    background: url("../../images/comments.gif") no-repeat scroll left center transparent;
+    background: url("<?php echo $pluginsurl; ?>/images/comments.gif") no-repeat scroll left center transparent;
     float: left;
     margin: 6px 2px 0;
     padding: 0 0 0 12px;

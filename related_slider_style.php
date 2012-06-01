@@ -60,7 +60,6 @@ margin:0px;
 	position: relative;
 	background-image: url("<?php echo $pluginsurl; ?>/images/noimage.png");
 	display: block;
-	cursor:pointer;
 	list-style:none;
 	border-bottom:1px solid #EBDDE2;
 	height: 110px;
@@ -101,7 +100,7 @@ box-shadow: 0 0 <?php echo $css3_shadow; ?>px #666666;
 text-align:left;
 direction:ltr;
 padding-top:5px;
-font:bold 120%/22px sans-serif;
+font:bold 100%/18px sans-serif;
 }
 .counter_num{
 text-align:center;
@@ -119,7 +118,7 @@ color:#000000;
 	padding-top:5px;
 	background-color: #F0F0F0;
 }
-.h3-top-style{
+#h3-top-style{
 	text-align:left;
 	direction:ltr;
 	font-weight: normal;
