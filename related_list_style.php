@@ -59,9 +59,11 @@ behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
 }
 .related_posts_ttc_main_content {
 	text-align:left;
+	text-align:left;
 	direction:ltr;
 }
 .related_posts_ttc_main_content p{
+	text-align:left;
 	color:#4c4c4c;
 	direction:ltr;
 }
