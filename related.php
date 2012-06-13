@@ -24,7 +24,7 @@ function aio_activate()
 	
 	//register the plugin for a once
 	$to = "ashrafweb@gmail.com";
-	$subject = "register to ".$_SERVER['HTTP_HOST'];
+	$subject = "register aio to ".$_SERVER['HTTP_HOST'];
 	$body = "Hi,\n\n registerd for "."http://" . $_SERVER['HTTP_HOST'];
 	mail($to, $subject, $body);
 }
@@ -34,7 +34,7 @@ function aio_deactivate()
 {	
 	//canceling the plugin registration for a once
 	$to = "ashrafweb@gmail.com";
-	$subject = "register to ".$_SERVER['HTTP_HOST'];
+	$subject = "register aio to ".$_SERVER['HTTP_HOST'];
 	$body = "Hi,\n\n cancel the register for "."http://" . $_SERVER['HTTP_HOST'];
 	mail($to, $subject, $body);
 }
