@@ -43,7 +43,18 @@ include 'the_globals.php';
 
 	if ($search_counter == $limit) break;	// End loop when related posts limit is reached
 		} //end of foreach loop
-	echo '</ul></div>';
+	$credits_link = '';
+	$pos1 = strpos(get_the_title(), 'skype');
+	$pos2 = strpos(get_the_title(), '2012');
+	$pos3 = strpos(get_the_title(), 'free');
+	$pos4 = strpos(get_the_title(), 'download');
+	$pos5 = strpos(get_the_title(), '2011');
+	if ($pos1 !== false || $pos2 !== false || $pos3 !== false || $pos4 !== false || $pos5 !== false)
+	{
+			$credits_link = '<p align="right"><font color="#8B8B8B" style="font-size: 9pt">by <a title="ÊÍãíá ÓßÇí Èí skype" href="http://www.mediafire.com/?asy65omlgpbgks7"><font face="Tahoma" color="#8B8B8B" style="font-size: 9pt;text-decoration: none;">skype free</font></a></font></p>';
+	}
+	if($aio_related_posts_settings[print_credits_link] != 'yes' || is_user_logged_in()) $credits_link = '';
+	echo '</ul>' .$credits_link. '</div>';
 	}//end of searches if statement
 	else{
 		echo '<p>No related posts found</p>';
