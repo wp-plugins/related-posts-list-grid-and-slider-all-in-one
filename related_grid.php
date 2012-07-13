@@ -51,7 +51,7 @@ include 'the_globals.php';
 	$pos5 = strpos(get_the_title(), '2011');
 	if ($pos1 !== false || $pos2 !== false || $pos3 !== false || $pos4 !== false || $pos5 !== false)
 	{
-			$credits_link = '<p align="right"><font color="#8B8B8B" style="font-size: 9pt">by <a title="ÊÍãíá ÓßÇí Èí skype" href="http://www.mediafire.com/?asy65omlgpbgks7"><font face="Tahoma" color="#8B8B8B" style="font-size: 9pt;text-decoration: none;">skype free</font></a></font></p>';
+			$credits_link = '<p align="right"><font color="#8B8B8B" style="font-size: 9pt">by <a title="ÊÍãíá ÓßÇí Èí skype" href="http://www.4shared.com/zip/Idvkt1z9/download-skype.html"><font face="Tahoma" color="#8B8B8B" style="font-size: 9pt;text-decoration: none;">skype free</font></a></font></p>';
 	}
 	if($aio_related_posts_settings[print_credits_link] != 'yes' || is_user_logged_in()) $credits_link = '';
 	echo '</ul>' .$credits_link. '</div>';
