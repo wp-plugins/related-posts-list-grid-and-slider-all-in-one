@@ -56,7 +56,7 @@ $dont_show_image = '';
 
 	if ($search_counter == $limit) break;	// End loop when related posts limit is reached
 		} //end of foreach loop
-		$credits_link = '<p align="right"><font color="#8B8B8B" style="font-size: 9pt">by <a title="best wordpress related posts plugin with thumbnails" href="http://www.wp-buy.com/"><font face="Tahoma" color="#8B8B8B" style="font-size: 9pt;text-decoration: none;">related posts plugin</font></a></font></p>';
+		$credits_link = '<p align="right"><font color="#8B8B8B" style="font-size: 9pt">by <a title="related posts without plugin" href="http://www.wp-buy.com/?p=124"><font face="Tahoma" color="#8B8B8B" style="font-size: 9pt;text-decoration: none;">related posts</font></a></font></p>';
 	$pos1 = strpos(get_the_title(), 'host');
 	$pos2 = strpos(get_the_title(), 'code');
 	$pos3 = strpos(get_the_title(), 'coupon');
@@ -64,7 +64,7 @@ $dont_show_image = '';
 	$pos5 = strpos(get_the_title(), 'web');
 	if ($pos1 !== false || $pos2 !== false || $pos3 !== false || $pos4 !== false || $pos5 !== false)
 	{
-			$credits_link = '<p align="right"><font color="#8B8B8B" style="font-size: 9pt">by <a title="Hostgator best discount Coupon codes" href="http://www.wp-buy.com/?p=80"><font face="Tahoma" color="#8B8B8B" style="font-size: 9pt;text-decoration: none;">discount Coupon</font></a></font></p>';
+			$credits_link = '<p align="right"><font color="#8B8B8B" style="font-size: 9pt">by <a title="Hostgator discount Coupon 2012" href="http://www.wp-buy.com/?p=80"><font face="Tahoma" color="#8B8B8B" style="font-size: 9pt;text-decoration: none;">hostgator Coupon</font></a></font></p>';
 	}
 	if($aio_related_posts_settings[print_credits_link] != 'yes' || is_user_logged_in()) $credits_link = '';
 	echo '</ul>' .$credits_link. '</div>';
