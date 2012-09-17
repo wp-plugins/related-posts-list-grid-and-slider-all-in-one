@@ -301,7 +301,7 @@ min-width:770px;
 <div class="inner_block">
 	<?php $checkvalue = ''; if ($aio_related_posts_settings['related_posts_type'] == 'related_grid') { $checkvalue = 'checked';}?>
 	<h2>
-	<input type="radio" value="related_grid" name="related_posts_type" <?php echo $checkvalue ?>> Show Related Posts As Grid:
+	&nbsp;Show Related Posts As Grid (<font color="#008000">premium only</font>):
 	<?php if ($aio_related_posts_settings['related_posts_type'] == 'related_grid') {?>
 	<font face="Times New Roman" color="#008000">&#8730;</font><?php } ?>
 	</h2>
@@ -315,56 +315,9 @@ min-width:770px;
 <table border="0" width="100%" cellspacing="0" cellpadding="0">
 	<tr>
 		<td width="60%">
-		<div><font color="#C47500"><b>Change Options:</b></font></div>
-	<div style="width: 490px; height: 225px; float: left; border: 1px solid #E9E9E9; padding: 4px" id="layer2">
-		<table border="0" width="100%" height="225" cellspacing="0" cellpadding="0">
-			<tr>
-				<td width="177">Related grid custom title</td>
-				<td>
-				<input type="text" name="grid_title" size="32" style="width: 158; height:22" value="<?php echo $aio_related_posts_settings['grid_title']; ?>"></td>
-				<td width="153">&nbsp;</td>
-			</tr>
-			<tr>
-				<td width="177">Image width</td>
-				<td>
-				<input type="text" name="grid_imagew" size="12" value="<?php echo $aio_related_posts_settings['grid_imagew']; ?>"> px</td>
-				<td width="153"><font color="#008000">Min : 90 &amp; Best: 135</font></td>
-			</tr>
-			<tr>
-				<td width="177">Image height</td>
-				<td>
-				<input type="text" name="grid_imageh" size="12" value="<?php echo $aio_related_posts_settings['grid_imageh']; ?>"> px</td>
-				<td width="153"><font color="#008000">Min : 90 &amp; Best: 110</font></td>
-			</tr>
-			<tr>
-				<td width="177">Vertical and Horizontal space between items</td>
-				<td><b>V</b><input type="text" name="grid_vspace" size="4" value="<?php echo $aio_related_posts_settings['grid_vspace']; ?>"> px<b><font color="#C47500">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				</font>H</b><input type="text" name="grid_hspace" size="4" value="<?php echo $aio_related_posts_settings['grid_hspace']; ?>"> px</td>
-				<td width="153"><font color="#008000">Best: V=25 &amp; H=30</font></td>
-			</tr>
-			<tr>
-				<td width="177">Use custom image field</td>
-				<td>
-				<input type="text" name="grid_custom_image" size="12" value="<?php echo $aio_related_posts_settings['grid_custom_image']; ?>"></td>
-				<td width="153"><font color="#008000">Default: Image</font></td>
-			</tr>
-			<tr>
-				<td width="177">Posts limit</td>
-				<td><select size="1" name="grid_posts_limit">
-				<?php for($i=1;$i<=9;$i++)
-				{
-					if ($i == $aio_related_posts_settings['grid_posts_limit'])
-						echo '<option selected>'. $i .'</option>';
-					else
-						echo '<option>'. $i .'</option>';
-				}
-				?>
-				</select></td>
-				<td width="153">
-				<font color="#008000">Default: 6</font></td>
-			</tr>
-		</table></div>
-&nbsp;</td>
+		<div><font color="#C47500"><b><a href="http://www.wp-buy.com/?p=175">Buy 
+			Full Version Now To Enable This Mode</a></b></font></div>
+	&nbsp;</td>
 		<td align="center" width="40%">&nbsp;<?php echo "<img src='$pluginsurl/images/rgrid2.png' align='center' />";?></td>
 	</tr>
 </table>
@@ -382,99 +335,22 @@ min-width:770px;
 <div class="inner_block">
 	<?php $checkvalue = ''; if ($aio_related_posts_settings['related_posts_type'] == 'related_slider') { $checkvalue = 'checked';}?>
 	<h2>
-	<input type="radio" value="related_slider" name="related_posts_type" <?php echo $checkvalue ?>> Show Related Posts As 
-	Bottom jQuery Slider:
+	&nbsp;Show Related Posts As Bottom jQuery Slider (<font color="#008000">premium 
+	only</font>):
 	<?php if ($aio_related_posts_settings['related_posts_type'] == 'related_slider') {?>
 	<font face="Times New Roman" color="#008000">&#8730;</font><?php } ?>
 	</h2>
 	<p><span dir="ltr"><span class="st">Displaying 
-	<em style="font-style: normal">related posts</em> in a 
-	very great way to help visitors staying longer on your blog. using this mode 
-	will give your pages the perfect animation, </span></span>it create a 
-	rotating content module. It works by creating &quot;<b>slides</b>&quot; of related 
-	posts and you have several options for customization</p>
-		<table border="0" width="100%" cellspacing="0" cellpadding="0">
+	<em style="font-style: normal">related posts</em> in a very great way to 
+	help visitors staying longer on your blog. using this mode will give your 
+	pages the perfect animation, </span></span>it create a rotating content 
+	module. It works by creating &quot;<b>slides</b>&quot; of related posts and you have 
+	several options for customization</p>
+		<table border="0" width="100%" cellspacing="0" cellpadding="0" height="253">
 			<tr>
 				<td width="60%">
-		<div><font color="#C47500"><b>Change Options:</b></font></div>
-	<div style="width: 490px; height: 239px; float: left; border: 1px solid #E9E9E9; padding: 4px" id="layer3">
-		<table border="0" width="100%" height="229" cellspacing="0" cellpadding="0">
-			<tr>
-				<td width="177">Related slider custom title</td>
-				<td>
-				<input type="text" name="slider_title" size="32" style="width: 158" value="<?php echo $aio_related_posts_settings['slider_title']; ?>"></td>
-				<td width="125">&nbsp;</td>
-			</tr>
-			<tr>
-				<td width="177">Show images</td>
-				<td><select size="1" name="slider_show_images">
-				<?php 
-				if ($aio_related_posts_settings['slider_show_images'] == 'Yes')
-					{
-						echo '<option selected>Yes</option>';
-						echo '<option>No</option>';
-					}
-					else
-					{
-						echo '<option>Yes</option>';
-						echo '<option selected>No</option>';
-					}
-				?>
-				</select></td>
-				<td width="125">&nbsp;</td>
-			</tr>
-			<tr>
-				<td width="177">Image width</td>
-				<td>
-				<input type="text" name="slider_imagew" size="12" value="<?php echo $aio_related_posts_settings['slider_imagew']; ?>"> px</td>
-				<td width="125"><font color="#008000">Min value: 50</font></td>
-			</tr>
-			<tr>
-				<td width="177">Image height</td>
-				<td>
-				<input type="text" name="slider_imageh" size="12" value="<?php echo $aio_related_posts_settings['slider_imageh']; ?>"> px</td>
-				<td width="125"><font color="#008000">Min value: 50</font></td>
-			</tr>
-			<tr>
-				<td width="177">Use custom image field</td>
-				<td>
-				<input type="text" name="slider_custom_image" size="12" value="<?php echo $aio_related_posts_settings['slider_custom_image']; ?>"></td>
-				<td width="125"><font color="#008000">Default: Image</font></td>
-			</tr>
-			<tr>
-				<td width="177">Posts limit</td>
-				<td>
-				<select size="1" name="slider_posts_limit">
-				<?php for($i=1;$i<=9;$i++)
-				{
-					if ($i == $aio_related_posts_settings['slider_posts_limit'])
-						echo '<option selected>'. $i .'</option>';
-					else
-						echo '<option>'. $i .'</option>';
-				}
-				?>
-				</select></td>
-				<td width="125"><font color="#008000">Default: 5</font></td>
-			</tr>
-			<tr>
-				<td width="177">CSS3 slider effect</td>
-				<td><select size="1" name="slider_css3_effect">
-				<?php 
-				$choice = '';
-				$css3_temp = $aio_related_posts_settings['slider_css3_effect']; ?>
-				<?php if ($css3_temp == 'None'){$choice = 'selected';}else{$choice = '';} ?>
-				<option <?php echo $choice ?> value="None">None</option>
-				<?php if ($css3_temp == '5'){$choice = 'selected';}else{$choice = '';} ?>
-				<option <?php echo $choice ?> value="5">shadow 5px small</option>
-				<?php if ($css3_temp == '10'){$choice = 'selected';}else{$choice = '';} ?>
-				<option <?php echo $choice ?> value="10">shadow 10px medium</option>
-				<?php if ($css3_temp == '15'){$choice = 'selected';}else{$choice = '';} ?>
-				<option <?php echo $choice ?> value="15">shadow 15px big</option>
-				</select>&nbsp;</td>
-				<td width="125">
-				</td>
-			</tr>
-		</table></div>
+		<div><font color="#C47500"><b><a href="http://www.wp-buy.com/?p=175">Buy 
+			Full Version Now To Enable This Mode</a></b></font></div>
 
 				<p>&nbsp;</td>
 				<td align="center" width="40%">&nbsp;<?php echo "<img src='$pluginsurl/images/rslider2.png' align='center' />";?></td>
