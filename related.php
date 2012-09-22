@@ -209,8 +209,18 @@ function get_searches($taglist)
 	global $wpdb, $post, $single;
 	$stuff = '';
 	$searches = '';
+	$limit = 5;
 	$aio_related_posts_settings = aio_read_options();
-	$limit = (stripslashes($aio_related_posts_settings['list_posts_limit']));
+	global $rstyle;
+	if($rstyle == 'related_list'){
+		$limit = (stripslashes($aio_related_posts_settings['list_posts_limit']));
+	}
+	if($rstyle == 'related_slider'){
+		$limit = (stripslashes($aio_related_posts_settings['slider_posts_limit']));
+	}
+	if($rstyle == 'related_grid'){
+		$limit = (stripslashes($aio_related_posts_settings['grid_posts_limit']));
+	}
 	// Make sure the post is not from the future
 	$time_difference = get_settings('gmt_offset');
 	$now = gmdate("Y-m-d H:i:s",(time()+($time_difference*3600)));

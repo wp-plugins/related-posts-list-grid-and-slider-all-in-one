@@ -4,7 +4,7 @@ include 'the_globals.php';
 ?>
 <?php
 	$aio_related_posts_settings = aio_read_options();
-	$limit = (stripslashes($aio_related_posts_settings['list_posts_limit']));
+	$limit = (stripslashes($aio_related_posts_settings['slider_posts_limit']));
 	$searches = get_searches($taglist);
 
     $counter = 1;
