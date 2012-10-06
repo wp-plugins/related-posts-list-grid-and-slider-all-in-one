@@ -1,6 +1,6 @@
 <?php
 //define all variables the needed alot
-//delete_option( 'aio_settings');
+//delete_option('aio_settings');
 include 'the_globals.php';
 if($_POST["action"] == 'update')
 {
@@ -15,6 +15,7 @@ if($_POST["action"] == 'update')
 	$list_custom_image = $_POST["list_custom_image"];
 	$list_posts_limit = $_POST["list_posts_limit"];
 	$list_css3_effect = $_POST["list_css3_effect"];
+	$list_css3_image_radius = $_POST["list_css3_image_radius"];
 	$list_excerpt_length = $_POST["list_excerpt_length"];
 	//Validation//
 	if($list_imagew < 70) $list_imagew = 70;
@@ -85,6 +86,7 @@ Array (
 		'list_custom_image' => $list_custom_image, // Use custom field to display images?
 		'list_posts_limit' => $list_posts_limit, // How many posts to display?
 		'list_css3_effect' => $list_css3_effect,
+		'list_css3_image_radius' => $list_css3_image_radius,
 		'list_excerpt_length' => $list_excerpt_length,
 		'grid_title' => $grid_title, // Title of the grid related posts block
 		'grid_show_images' => $grid_show_images, // Display images or not?
@@ -174,7 +176,8 @@ min-width:770px;
 <div class="inner_block">
 	<?php $checkvalue = ''; if ($aio_related_posts_settings['related_posts_type'] == 'related_list') { $checkvalue = 'checked';}?>
 	<h2>
-	<input type="radio" value="related_list" name="related_posts_type" <?php echo $checkvalue ?> checked > Show Related Posts As List: 
+	<input type="radio" value="related_list" name="related_posts_type" <?php echo $checkvalue ?> checked > Show Related Posts As List 
+	(<font color="#008000">free</font>): 
 	<?php if ($aio_related_posts_settings['related_posts_type'] == 'related_list') {?>
 	<font face="Times New Roman" color="#008000">&#8730;</font><?php } ?></h2>
 	<p><span class="st">&nbsp;&nbsp; In this mode the related posts to your 
@@ -278,6 +281,24 @@ min-width:770px;
 				<option <?php echo $choice ?> value="10">shadow 10px medium</option>
 				<?php if ($css3_temp == '15'){$choice = 'selected';}else{$choice = '';} ?>
 				<option <?php echo $choice ?> value="15">shadow 15px big</option>
+				</select></td>
+				<td width="125">
+				&nbsp;</td>
+			</tr>
+			<tr>
+				<td width="177" colspan="2">CSS3 image effects</td>
+				<td width="178"><select size="1" name="list_css3_image_radius">
+				<?php
+				$choice = '';
+				$css3_temp = $aio_related_posts_settings['list_css3_image_radius']; ?>
+				<?php if ($css3_temp == 'None'){$choice = 'selected';}else{$choice = '';} ?>
+				<option <?php echo $choice ?> value="None">None</option>
+				<?php if ($css3_temp == '10'){$choice = 'selected';}else{$choice = '';} ?>
+				<option <?php echo $choice ?> value="10">small radius 10px</option>
+				<?php if ($css3_temp == '20'){$choice = 'selected';}else{$choice = '';} ?>
+				<option <?php echo $choice ?> value="20">medium radius 20px</option>
+				<?php if ($css3_temp == '45'){$choice = 'selected';}else{$choice = '';} ?>
+				<option <?php echo $choice ?> value="45">rounded radius</option>
 				</select></td>
 				<td width="125">
 				&nbsp;</td>
