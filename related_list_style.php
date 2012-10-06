@@ -88,6 +88,8 @@ behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
     background: none repeat scroll 0 0 #FFFFFF;
     margin: 0px 0px 0px 0px;
     padding: 0px;
+    border-radius: 44px 44px 44px 44px;
+    -moz-border-radius: 44px 44px 44px 44px;
 }
 #entry-meta-span {
     background: none repeat scroll 0 0 #000000;

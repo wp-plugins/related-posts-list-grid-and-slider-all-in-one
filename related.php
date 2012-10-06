@@ -161,11 +161,24 @@ function aio_default_options(){
 	return $aio_related_posts_settings;
 }
 //-------------------------------------------------------
+    function html2txt($document){
+    $search = array('@<script[^>]*?>.*?</script>@si', // Strip out javascript
+    '@<style[^>]*?>.*?</style>@siU', // Strip style tags properly
+    '@<[?]php[^>].*?[?]>@si', //scripts php
+    '@<[?][^>].*?[?]>@si', //scripts php
+    '@<[\/\!]*?[^<>]*?>@si', // Strip out HTML tags
+    '@<![\s\S]*?--[ \t\n\r]*>@' // Strip multi-line comments including CDATA
+    );$text = preg_replace($search, '', $document);
+    return $text;
+    }
+//-------------------------------------------------------
 function aio_excerpt($id,$excerpt_length){
 	$content = get_post($id)->post_excerpt;
 	if ($content == '') $content = get_post($id)->post_content;
 	$out = strip_tags($content);
 	$blah = explode(' ',$out);
+    //$html_source = file_get_contents('http://www.anysite.com');
+    $blah = html2txt($blah);
 	if (!$excerpt_length) $excerpt_length = 10;
 	if(count($blah) > $excerpt_length){
 		$k = $excerpt_length;
