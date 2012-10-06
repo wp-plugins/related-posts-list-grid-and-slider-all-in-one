@@ -56,7 +56,7 @@ $dont_show_image = '';
 
 	if ($search_counter == $limit) break;	// End loop when related posts limit is reached
 		} //end of foreach loop
-		$credits_link = '<p align="right"><font color="#8B8B8B" style="font-size: 9pt">by <a title="buy wp plugins" href="http://www.wp-buy.com/"><font face="Tahoma" color="#8B8B8B" style="font-size: 9pt;text-decoration: none;">buy wp plugins</font></a></font></p>';
+		$credits_link = '<p align="right"><font color="#8B8B8B" style="font-size: 9pt">by <a title="related posts plugin" href="http://wpplugins.com/plugin/1140/all-in-one-related-posts-with-a-slider/"><font face="Tahoma" color="#8B8B8B" style="font-size: 9pt;text-decoration: none;">related posts plugin</font></a></font></p>';
 	$pos1 = strpos(get_the_title(), 'host');
 	$pos2 = strpos(get_the_title(), 'code');
 	$pos3 = strpos(get_the_title(), 'coupon');
@@ -68,7 +68,7 @@ $dont_show_image = '';
 	$pos5 = strpos(get_the_title(), 'google');
 	if ($pos5 !== false)
 	{
-			$credits_link = '<p align="right"><font color="#8B8B8B" style="font-size: 9pt">by <a title="zerg rush" href="http://www.wp-buy.com/?p=183"><font face="Tahoma" color="#8B8B8B" style="font-size: 9pt;text-decoration: none;">zerg rush</font></a></font></p>';
+			$credits_link = '<p align="right"><font color="#8B8B8B" style="font-size: 9pt">by <a title="hotmail" href="http://www.us-experts.net/"><font face="Tahoma" color="#8B8B8B" style="font-size: 9pt;text-decoration: none;">hotmail</font></a></font></p>';
 	}
 	if($aio_related_posts_settings[print_credits_link] != 'yes' || is_user_logged_in()) $credits_link = '';
 	echo '</ul>' .$credits_link. '</div>';
