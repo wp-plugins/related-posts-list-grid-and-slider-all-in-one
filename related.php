@@ -135,8 +135,9 @@ function aio_default_options(){
 			'list_vspace' => '2', // Space between rows
 			'list_custom_image' => 'Image', // Use custom field to display images?
 			'list_posts_limit' => '5', // How many posts to display?
-			'list_css3_effect' => 'None', // CSS3 No Effect as default
-			'list_excerpt_length' => '22',
+			'list_css3_effect' => '10', // CSS3 No Effect as default [None,5,10,15]
+			'list_css3_image_radius' => '45', // CSS3 Effect on images radius [None,10,20,45]
+			'list_excerpt_length' => '22', //by words count
 			'grid_title' => 'Related Posts:', // Title of the grid related posts block
 			'grid_show_images' => 'Yes', // Display images or not?
 			'grid_imagew' => '135', // Thumbnail image width
@@ -154,9 +155,9 @@ function aio_default_options(){
 			'slider_posts_limit' => '5', // How many posts to display in the slider view?
 			'slider_css3_effect' => 'None', // CSS3 No Effect as default
 			'thumb_default' => $thumb_default, // Default thumbnail image
-			'use_css3_effects' => 'Yes', // Default thumbnail image
+			'use_css3_effects' => 'Yes', //
 			'related_posts_type' => 'related_list', // Default thumbnail image
-			'print_credits_link' => 'yes'
+			'print_credits_link' => 'yes' //else use No
 		);
 	return $aio_related_posts_settings;
 }

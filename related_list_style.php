@@ -35,6 +35,18 @@ behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
 }
 <?php } ?>
 
+<?php 
+$list_css3_image_radius = $aio_related_posts_settings['list_css3_image_radius'];
+if($list_css3_image_radius != 'None'){ ?>
+.related_posts_ttc_main_image img {
+-webkit-border-radius: <?php echo $list_css3_image_radius; ?>px;// Safari and chrome
+-khtml-border-radius: <?php echo $list_css3_image_radius; ?>px;// Linux browsers
+behavior: url(ie-css3.htc);
+-moz-border-radius: <?php echo $list_css3_image_radius; ?>px;
+border-radius: <?php echo $list_css3_image_radius; ?>px;
+behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
+}
+<?php } ?>
 .imgshadow_light {
     background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid #777777;
@@ -88,8 +100,6 @@ behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
     background: none repeat scroll 0 0 #FFFFFF;
     margin: 0px 0px 0px 0px;
     padding: 0px;
-    border-radius: 44px 44px 44px 44px;
-    -moz-border-radius: 44px 44px 44px 44px;
 }
 #entry-meta-span {
     background: none repeat scroll 0 0 #000000;

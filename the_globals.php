@@ -1,6 +1,6 @@
 <?php
 $option_name = 'Aio_Related_Posts_Type';
-$ver_type = 'free';
+$ver_type = 'paid';
 //Get The Plugins URL as http://www.yrsite.com/dir/subdir
 	$pluginsurl = plugins_url( '', __FILE__ );
 //get the tag id's as al list
