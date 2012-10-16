@@ -112,7 +112,7 @@ behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
     position: relative;
     text-align: center;
     width: 100%;
-    z-index: 99999;
+    z-index: 99;
     border-radius: 15px 15px 15px 15px;
     -moz-border-radius: 15px 15px 15px 15px;
     -webkit-border-radius: 15px 15px 15px 15px;
