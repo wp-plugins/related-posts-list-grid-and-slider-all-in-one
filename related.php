@@ -134,9 +134,9 @@ function aio_default_options(){
 			'list_imageh' => '85', // Thumbnail image height
 			'list_vspace' => '2', // Space between rows
 			'list_custom_image' => 'Image', // Use custom field to display images?
-			'list_posts_limit' => '5', // How many posts to display?
-			'list_css3_effect' => '10', // CSS3 No Effect as default [None,5,10,15]
-			'list_css3_image_radius' => '45', // CSS3 Effect on images radius [None,10,20,45]
+			'list_posts_limit' => '6', // How many posts to display?
+			'list_css3_effect' => '5', // CSS3 No Effect as default [None,5,10,15]
+			'list_css3_image_radius' => '10', // CSS3 Effect on images radius [None,10,20,45]
 			'list_excerpt_length' => '22', //by words count
 			'grid_title' => 'Related Posts:', // Title of the grid related posts block
 			'grid_show_images' => 'Yes', // Display images or not?
