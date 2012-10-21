@@ -9,7 +9,7 @@ Stable tag: 1.7
 Our plugin displaying related posts in a very great way to help visitors staying longer on your blog. You can use this plugin to increasing the page rank of your internal posts to improve your SEO score.
 
 == Description ==
-For detailed description of the plugin visit plugin page at [Related post All in One](http://www.aragt.com/aio/) or at the home page [aragt soft](http://www.aragt.com/).
+For detailed description of the plugin visit plugin page at [Related post All in One](http://www.wp-buy.com/) or at the home page [aragt soft](http://www.aragt.com/).
 
 **Improve your seo score in Google and Yahoo and other SE's**:
 Our plugin displaying related posts in a very great way to help visitors staying longer on your blog. You can use this plugin to increasing the page rank of your internal posts to improve your SEO score
@@ -33,7 +33,7 @@ Read the installation steps to find that this plugin does not need any coding or
 4. Final result (related posts as a list)
 
 == Installation ==
-*For detailed description and installation details of the plugin visit plugin page at[Related post All in One](http://www.aragt.com/aio/).
+*For detailed description and installation details of the plugin visit plugin page at [Related post All in One](http://www.wp-buy.com/).
 
 *1.Download the package.
 *2.Extract the contents of aio-related-posts.zip to wp-content/plugins/ folder  You should get a folder called aio-related-posts
