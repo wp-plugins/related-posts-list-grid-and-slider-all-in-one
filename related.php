@@ -1,11 +1,11 @@
 <?php ob_start();
 /*
 Plugin Name: All In One Related Posts
-Plugin URI: http://www.aragt.com/aio
+Plugin URI: http://www.wp-buy.com/
 Description: Our plugin displaying related posts in a very great way to help visitors staying longer on your blog. You can use this plugin to increasing the page rank of your internal posts to improve your SEO score
 Version: 1.7
 Author: aragt
-Author URI: http://www.aragt.com/aio
+Author URI: http://www.wp-buy.com/
 */
 ?>
 <?php
