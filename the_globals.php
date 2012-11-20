@@ -6,13 +6,24 @@ $ver_type = 'free';
 //get the tag id's as al list
 global $post;
 $tags = wp_get_post_tags($post->ID);
-	
-	$taglist = "'" . $tags[0]->term_id. "'";
-	
-	$tagcount = count($tags);
+$tagcount = count($tags);
+$result = $tags;
+if ($tagcount > 1) {
+for ($i = 0; $i < $tagcount; $i++)
+   {
+	$mytags[$i]['term_id'] = $tags[$i]->term_id;
+	$mytags[$i]['count'] = $tags[$i]->count;
+   }
+$result = sortTwoDimensionArrayByKey($mytags,'count');
+}
+	$taglist = "'" . $result[0]->term_id. "'";
+	$countlist = "'" . $result[0]->count. "'";
+
 	if ($tagcount > 1) {
 		for ($i = 1; $i < $tagcount; $i++) {
-			$taglist = $taglist . ", '" . $tags[$i]->term_id . "'";
+			if ($result[$i]['count'] < 9) {
+			$taglist = $taglist . ", '" . $result[$i]['term_id'] . "'";
+			$countlist = $countlist . ", '" . $result[$i]['count'] . "'";}
 		}
 	}
 $reg_exp = '|<img.*?src=[\'"](.*?)[\'"].*?>|';

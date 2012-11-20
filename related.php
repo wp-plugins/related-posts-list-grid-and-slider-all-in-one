@@ -14,6 +14,14 @@ include 'the_globals.php';
 $aio_related_posts_settings = aio_read_options();
 $rstyle = $aio_related_posts_settings['related_posts_type'];
 //------------------------------------------------------------------------
+function sortTwoDimensionArrayByKey($arr, $arrKey, $sortOrder=SORT_ASC){
+foreach ($arr as $key => $row){
+$key_arr[$key] = $row[$arrKey];
+}
+array_multisort($key_arr, $sortOrder, $arr);
+return $arr;
+}
+//------------------------------------------------------------------------
 function get_related_posts_aio($content)
 {
 if (is_single()) {
@@ -215,16 +223,15 @@ function get_searches($taglist)
 	$stuff = addslashes($post->post_title);
 	//$stuff = '';
 	if ((is_int($post->ID))) {
-		$sql = "SELECT DISTINCT ID,post_title,post_date,MATCH (post_title,post_content) AGAINST ('".$stuff."') AS score "
+		$sql = "SELECT DISTINCT ID,post_title,post_date "
 		. "FROM ". "$wpdb->posts , $wpdb->term_taxonomy t_t, $wpdb->term_relationships t_r"
 		." WHERE "
-		." (t_t.taxonomy ='post_tag' AND t_t.term_taxonomy_id = t_r.term_taxonomy_id AND t_r.object_id  = ID AND (t_t.term_id IN ($taglist)) "
-		. "or MATCH (post_title,post_content) AGAINST ('".$stuff."')) "
+		." (t_t.taxonomy ='post_tag' AND t_t.term_taxonomy_id = t_r.term_taxonomy_id  AND  t_r.object_id  = ID AND (t_t.term_id IN ($taglist))) "
 		. "AND post_date <= '".$now."' "
 		. "AND post_status = 'publish' "
 		. "AND id != ".$post->ID." "
 		."AND post_type = 'post' "
-		." order by score*id desc "
+		." order by id desc "
 		."LIMIT ".$limit;
 		$search_counter = 0;
 		$searches = $wpdb->get_results($sql);
