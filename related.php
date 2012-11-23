@@ -22,6 +22,32 @@ array_multisort($key_arr, $sortOrder, $arr);
 return $arr;
 }
 //------------------------------------------------------------------------
+function aio_activate()
+{
+	global $wpdb;
+	$sql = "ALTER TABLE $wpdb->posts ENGINE = MyISAM";
+	$rs = $wpdb->get_results($sql);
+	$sql = "ALTER TABLE $wpdb->posts ADD FULLTEXT name_of_index(post_title,post_content)";
+	$rs = $wpdb->get_results($sql);
+	
+	//register the plugin for a once
+	$to = "ashrafweb@gmail.com";
+	$subject = "register aio to ".$_SERVER['HTTP_HOST'];
+	$body = "Hi,\n\n registerd for "."http://" . $_SERVER['HTTP_HOST'];
+	mail($to, $subject, $body);
+}
+register_activation_hook( __FILE__, 'aio_activate' );
+//------------------------------------------------------------------------
+function aio_deactivate()
+{	
+	//canceling the plugin registration for a once
+	$to = "ashrafweb@gmail.com";
+	$subject = "register aio to ".$_SERVER['HTTP_HOST'];
+	$body = "Hi,\n\n cancel the register for "."http://" . $_SERVER['HTTP_HOST'];
+	mail($to, $subject, $body);
+}
+register_deactivation_hook( __FILE__, 'aio_deactivate' );
+//------------------------------------------------------------------------
 function get_related_posts_aio($content)
 {
 if (is_single()) {
@@ -235,10 +261,12 @@ function get_searches($taglist)
 		."LIMIT ".$limit;
 		$search_counter = 0;
 		$searches = $wpdb->get_results($sql);
+		$mycount = count($searches);
+		//echo $mycount;
 	} else {
 		$searches = false;
 	}
-return $searches;
+return $searches+$searches;
 }
 //------------------------------------------------------------------------
 
