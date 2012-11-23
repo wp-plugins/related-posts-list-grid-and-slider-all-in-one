@@ -16,17 +16,28 @@ for ($i = 0; $i < $tagcount; $i++)
    }
 $result = sortTwoDimensionArrayByKey($mytags,'count');
 }
-	$taglist = "'" . $result[0]->term_id. "'";
-	$countlist = "'" . $result[0]->count. "'";
-
-	if ($tagcount > 1) {
-		for ($i = 1; $i < $tagcount; $i++) {
-			if ($result[$i]['count'] < 9) {
-			$taglist = $taglist . ", '" . $result[$i]['term_id'] . "'";
-			$countlist = $countlist . ", '" . $result[$i]['count'] . "'";}
-		}
+$taglist_full = "'" . $result[0]->term_id. "'";
+$taglist = "'" . $result[0]->term_id. "'";
+$countlist = "'" . $result[0]->count. "'";
+$mysum = 0;
+$myavg = 0;
+for ($i = 1; $i < $tagcount; $i++) {
+	$mysum = $mysum + $result[$i]['count'];
+}
+if($tagcount != 0) $myavg = $mysum / $tagcount;
+if ($myavg < 4 || $tagcount < 5) $myoperator = 20;
+else
+$myoperator = $myavg + 3;
+if ($tagcount > 1) {
+	for ($i = 1; $i < $tagcount; $i++) {
+		$taglist_full = $taglist_full . ", '" . $result[$i]['term_id'] . "'";
+		if ($result[$i]['count'] < $myoperator) {
+		   $taglist = $taglist . ", '" . $result[$i]['term_id'] . "'";
+		   $countlist = $countlist . ", '" . $result[$i]['count'] . "'";}
 	}
+}
 $reg_exp = '|<img.*?src=[\'"](.*?)[\'"].*?>|';
 $new_reg_exp = '@<img.+src="(.*)".*>@Uims';
 
+//echo $myoperator;
 ?>
