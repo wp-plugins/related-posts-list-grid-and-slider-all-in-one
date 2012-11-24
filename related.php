@@ -278,6 +278,7 @@ $sql = "SELECT ID,post_title,post_date "
 		." WHERE "
 		."post_type = 'post' and post_status = 'publish' "
 		. "AND (id NOT IN ($idslist)) "
+		." order by id desc "
 		."LIMIT ".$new_limit;
 		$searches2 = $wpdb->get_results($sql);
 $merged_searches = array_merge($searches, $searches2);
