@@ -265,8 +265,23 @@ function get_searches($taglist)
 		//echo $mycount;
 	} else {
 		$searches = false;
+	} 
+$idslist = "'" . $post->ID. "'";
+if ($mycount > 0) {
+	for ($i = 0; $i < $mycount; $i++) {
+		   $idslist = $idslist . ", '" . $searches[$i]->ID. "'";
 	}
-return $searches+$searches;
+}
+$new_limit = $limit - $mycount;
+$sql = "SELECT ID,post_title,post_date "
+		. "FROM ". "$wpdb->posts "
+		." WHERE "
+		."post_type = 'post' and post_status = 'publish' "
+		. "AND (id NOT IN ($idslist)) "
+		."LIMIT ".$new_limit;
+		$searches2 = $wpdb->get_results($sql);
+$merged_searches = array_merge($searches, $searches2);
+return $merged_searches;
 }
 //------------------------------------------------------------------------
 
