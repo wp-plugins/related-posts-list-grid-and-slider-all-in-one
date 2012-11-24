@@ -118,6 +118,13 @@ behavior: url(<?php echo $pluginsurl; ?>/ie-css3.htc);
     -webkit-border-radius: 15px 15px 15px 15px;
     -khtmlborder-radius: 15px 15px 15px 15px;
 }
+.credit-span,.credit-span a{
+color:#8B8B8B;
+font-size: 9pt;
+text-align:right;
+text-decoration:none;
+
+}
 //#related_posts_ttc li:hover{background:#F9F9F9;-moz-transition: all 0.3s ease-out 0s;}
 </style>
 <?php
