@@ -310,6 +310,73 @@ min-width:770px;
 	</table>
 	
 	</div>
+<tr>
+		<td width="100%"><hr/>
+		</td>
+	</tr>
+	<tr>
+		<td width="77%">
+<div class="inner_block" style="width: 1241px; height: 354px">
+	<?php $checkvalue = ''; if ($aio_related_posts_settings['related_posts_type'] == 'related_grid') { $checkvalue = 'checked';}?>
+	<h2>
+	&nbsp;Show Related Posts As Grid (<font color="#008000">premium only</font>):
+	<?php if ($aio_related_posts_settings['related_posts_type'] == 'related_grid') {?>
+	<font face="Times New Roman" color="#008000">&#8730;</font><?php } ?>
+	</h2>
+	<p><span class="st">&nbsp;&nbsp; In this mode the related posts to your 
+	content will be displayed as a list of items as a grid of rows, each row 
+	contain some items and each item (post) an image ant title, you can change 
+	the values for those elements to mach your needs as you like, at the options 
+	block you can see that there is a default and best values web prefer for 
+	each option, we recommend to let take the default values to get the best 
+	view.</span></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="248">
+	<tr>
+		<td width="60%">
+		<div><font color="#C47500"><b>
+			<a href="http://www.wp-buy.com/product/related-posts-all-in-one/">Buy 
+			Full Version Now To Enable This Mode</a></b></font></div>
+	&nbsp;</td>
+		<td align="center" width="40%">&nbsp;<?php echo "<img src='$pluginsurl/images/rgrid2.png' align='center' />";?></td>
+	</tr>
+</table>
+</div>
+
+&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="100%"><hr/>
+		</td>
+	</tr>
+	<tr>
+		<td width="77%">
+
+<div class="inner_block">
+	<?php $checkvalue = ''; if ($aio_related_posts_settings['related_posts_type'] == 'related_slider') { $checkvalue = 'checked';}?>
+	<h2>
+	&nbsp;Show Related Posts As Bottom jQuery Slider (<font color="#008000">premium 
+	only</font>):
+	<?php if ($aio_related_posts_settings['related_posts_type'] == 'related_slider') {?>
+	<font face="Times New Roman" color="#008000">&#8730;</font><?php } ?>
+	</h2>
+	<p><span dir="ltr"><span class="st">Displaying 
+	<em style="font-style: normal">related posts</em> in a very great way to 
+	help visitors staying longer on your blog. using this mode will give your 
+	pages the perfect animation, </span></span>it create a rotating content 
+	module. It works by creating &quot;<b>slides</b>&quot; of related posts and you have 
+	several options for customization</p>
+		<table border="0" width="100%" cellspacing="0" cellpadding="0" height="253">
+			<tr>
+				<td width="60%">
+		<div><font color="#C47500"><b>
+			<a href="http://www.wp-buy.com/product/related-posts-all-in-one/">Buy 
+			Full Version Now To Enable This Mode</a></b></font></div>
+
+				<p>&nbsp;</td>
+				<td align="center" width="40%">&nbsp;<?php echo "<img src='$pluginsurl/images/rslider2.png' align='center' />";?></td>
+			</tr>
+	</table>
+</div>
 		</td>
 	</tr>
 	</table>
