@@ -1,15 +1,14 @@
-=== Related Posts All in One - with css3 styles ===
-Contributors: ashrafweb	
+=== Related Posts Thumbnails - with css3 styles ===
+Contributors: ashrafweb
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ashrafweb%40gmail%2ecom&lc=US&item_name=aio%20plugins&item_number=aio&amount=19%2e00&currency_code=USD&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: google, plugin, posts,related, entries, post, pages, page, slider, list, grid, style
 Requires at least: 2.9
-Tested up to: 3.8.1
+Tested up to: 3.9
 Stable tag: 1.8
 
-Our plugin displaying related posts in a very great way to help visitors staying longer on your blog. You can use this plugin to increasing the page rank of your internal posts to improve your SEO score.
-
 == Description ==
-For detailed description of the plugin visit plugin page at [Related post All in One](http://www.wp-buy.com/)
+Our plugin displaying related posts in a very great way to help visitors staying longer on your blog. You can use this plugin to increasing the page rank of your internal posts to improve your SEO score.
+For detailed description of the plugin visit plugin page at [Related Posts with Thumbnails Premium](http://www.wp-buy.com/product/related-posts-all-in-one/)
 
 **Improve your seo score in Google and Yahoo and other SE's**:
 Our plugin displaying related posts in a very great way to help visitors staying longer on your blog. You can use this plugin to increasing the page rank of your internal posts to improve your SEO score
@@ -33,7 +32,9 @@ Read the installation steps to find that this plugin does not need any coding or
 4. Final result (related posts as a list)
 
 == Installation ==
-*For detailed description and installation details of the plugin visit plugin page at [Related post All in One](http://www.wp-buy.com/).
+*For detailed description and installation details of the plugin see the plugin help files at
+[help file download](http://www.wp-buy.com/wp-content/uploads/2012/08/How-To-Use-Related-Posts-All-in-One-Premium-version.zip)
+
 
 *1.Download the package.
 *2.Extract the contents of aio-related-posts.zip to wp-content/plugins/ folder  You should get a folder called aio-related-posts
@@ -45,6 +46,19 @@ Thanks!
 
 
 == Changelog ==
+= 1.4 =
+* css table and td fixed
+* 3.3.1 compatibility fix
+* changing priority of results order
+* css style more compatibility fix with most themes
+* Update sql code to get more equivalent results
+* abbility to extract images from post content if there is no featured image set!
+* CSS Style fixing
+* Image display Fix
+* New way of calculating image views
+* CSS Style fixing
+* New listing views
+
 = 1.5 =
 * css table and td fixed
 * 3.3.1 compatibility fix

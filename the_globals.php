@@ -3,6 +3,7 @@ $option_name = 'Aio_Related_Posts_Type';
 $ver_type = 'free';
 //Get The Plugins URL as http://www.yrsite.com/dir/subdir
 	$pluginsurl = plugins_url( '', __FILE__ );
+	$aiopluginsurl = plugins_url( '', __FILE__ );
 //get the tag id's as al list
 global $post;
 $tags = wp_get_post_tags($post->ID);

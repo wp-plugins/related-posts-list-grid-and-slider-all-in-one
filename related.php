@@ -1,6 +1,6 @@
 <?php ob_start();
 /*
-Plugin Name: Related Posts All in One - with css3 styles
+Plugin Name: Related Posts Thumbnails - with css3 styles
 Plugin URI: http://www.wp-buy.com/
 Description: Our plugin displaying related posts in a very great way to help visitors staying longer on your blog. You can use this plugin to increasing the page rank of your internal posts to improve your SEO score
 Version: 1.8
@@ -13,7 +13,33 @@ Author URI: http://www.wp-buy.com/
 include 'the_globals.php';
 $aio_related_posts_settings = aio_read_options();
 $rstyle = $aio_related_posts_settings['related_posts_type'];
-
+//------------------------------------------------------------------------
+// Register Script
+function Related_Posts_All_in_One_scripts() {
+	global $aiopluginsurl;
+	wp_register_script('jquery', 'http://code.jquery.com/jquery-1.10.2.min.js', false, '1.10.2');
+	wp_enqueue_script('jquery');
+	wp_register_script( 'slider-jquery-mini', $aiopluginsurl.'/easySlider/js/jquery.min.js', false, '10.1', false );
+	wp_enqueue_script( 'slider-jquery-mini' );
+	wp_register_script( 'easySlider-jquery-mini', $aiopluginsurl.'/easySlider/js/easySlider.js', true, '10.1', true);
+	wp_enqueue_script( 'easySlider-jquery-mini' );
+	wp_register_style( 'easySlider', $aiopluginsurl.'/easySlider/css/easySlider.css');
+	wp_enqueue_style('easySlider');
+	wp_register_script( 'html54IE', $aiopluginsurl.'/easySlider/js/html5.js', false, '1.5', false );
+	wp_enqueue_script( 'html54IE' );
+}
+// Hook into the 'wp_enqueue_scripts' action
+add_action( 'wp_enqueue_scripts', 'Related_Posts_All_in_One_scripts' );
+//-------------------------------------------------------SimpleTabs scripts
+function aio_enqueue_scripts() {
+	global $aiopluginsurl;
+	wp_register_script( 'simpletabsjs', $aiopluginsurl .'/js/simpletabs_1.3.js');
+	wp_enqueue_script( 'simpletabsjs' );
+	wp_register_style( 'simpletabscss', $aiopluginsurl .'/css/simpletabs.css');
+	wp_enqueue_style('simpletabscss');
+}
+// Hook into the 'wp_enqueue_scripts' action
+add_action( 'admin_head', 'aio_enqueue_scripts' );
 //------------------------------------------------------------------------
 function sortTwoDimensionArrayByKey($arr, $arrKey, $sortOrder=SORT_ASC){
 foreach ($arr as $key => $row){
@@ -265,7 +291,7 @@ return $merged_searches;
 add_action('admin_menu', 'att_add_options');
 //Make our function to call the WordPress function to add to the correct menu.
 function att_add_options() {
-	add_options_page('All in one Related Posts Options Page', 'All In One Related Posts', 8, 'attachedoptions', 'att_options_page');
+	add_options_page('Related Posts with Thumbnails', 'Related Posts with Thumbnails', 8, 'attachedoptions', 'att_options_page');
 }
 //------------------------------------------------------------------------
 function att_options_page() {
