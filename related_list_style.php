@@ -89,17 +89,19 @@ behavior: url(<?php echo $aiopluginsurl; ?>/ie-css3.htc);
 	padding: 0px;
 }
 	
-#related_posts_ttc li{
-	text-align:left;
-	position: relative;display: block;
-	list-style:none;
-	border-bottom:1px solid #EBDDE2;
-	height: 110px;
-	padding-top: 5px;
-	padding-right: 5px !important;
-	padding-bottom:<?php echo $aio_related_posts_settings['list_vspace']; ?>px;
+#related_posts_ttc li{	
+	border-bottom: 1px dotted #EBDDE2;
+    display: table;
+    height: 70px;
+    list-style: none outside none;
+    margin: 0;
+    max-height: 110px;
+    padding-bottom:<?php echo $aio_related_posts_settings['list_vspace']; ?>px;
 	padding-left:10px;
-	margin:0px;
+    padding-right: 5px !important;
+    padding-top: 5px;
+    position: relative;
+    text-align: left;
 }
 #related_posts_ttc li img{
     background: none repeat scroll 0 0 #FFFFFF;

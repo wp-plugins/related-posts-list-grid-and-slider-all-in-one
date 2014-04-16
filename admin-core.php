@@ -74,7 +74,7 @@ if($_POST["action"] == 'update')
 	$thumb_default = $_POST["thumb_default"];
 	$use_css3_effects = $_POST["use_css3_effects"];
 	$print_credits_link = $_POST["print_credits_link"];
-	if($thumb_default == ''){$thumb_default = $pluginsurl.'/images/noimage.png';}
+	if($thumb_default == ''){$thumb_default = $aiopluginsurl.'/images/noimage.png';}
 
 $aio_related_posts_settings = 
 Array (
@@ -160,20 +160,19 @@ min-width:770px;
 		<td><strong>Your donation is like a diamond and Makes a Difference: it's forever</strong></td>
 	</tr>
 </table>
-<div style="width: 6px; height: 0px"></div></div>
+</div>
 <div id="aio_admin_main">
 <form method="POST">
 <input type="hidden" value="update" name="action">
-<table border="0" width="100%" cellspacing="0" cellpadding="0">
-	<tr>
-		<td width="77%" align="right" valign="top">
 
-&nbsp;</td>
-	</tr>
-	<tr>
-		<td width="77%">
 
-<div class="inner_block">
+<div class="simpleTabs">
+<ul class="simpleTabsNavigation">
+    <li><a href="#">Classic layout</a></li>
+    <li><a href="#">Premium layout (1)</a></li>
+    <li><a href="#">Premium layout (2)</a></li>
+</ul>
+<div class="simpleTabsContent">
 	<?php $checkvalue = ''; if ($aio_related_posts_settings['related_posts_type'] == 'related_list') { $checkvalue = 'checked';}?>
 	<h2>
 	<input type="radio" value="related_list" name="related_posts_type" <?php echo $checkvalue ?> checked > Show Related Posts As List: 
@@ -218,14 +217,14 @@ min-width:770px;
 			</tr>
 			<tr>
 				<td width="87">Image width</td>
-				<td title="Best Value: 85px" width="90"><?php echo "<img title='Best Value: 85px' src='$pluginsurl/images/what.gif' align='center' />";?></td>
+				<td title="Best Value: 85px" width="90"><?php echo "<img title='Best Value: 85px' src='$aiopluginsurl/images/what.gif' align='center' />";?></td>
 				<td width="211">
 				<input type="text" name="list_imagew" size="12" value="<?php echo $aio_related_posts_settings['list_imagew']; ?>"> px</td>
 				<td width="123"><font color="#008000">Min value: 70</font></td>
 			</tr>
 			<tr>
 				<td width="87">Image height</td>
-				<td title="Best Value: 85px" width="90"><?php echo "<img title='Best Value: 85px' src='$pluginsurl/images/what.gif' align='center' />";?></td>
+				<td title="Best Value: 85px" width="90"><?php echo "<img title='Best Value: 85px' src='$aiopluginsurl/images/what.gif' align='center' />";?></td>
 				<td width="211">
 				<input type="text" name="list_imageh" size="12" value="<?php echo $aio_related_posts_settings['list_imageh']; ?>"> px</td>
 				<td width="123">
@@ -305,18 +304,13 @@ min-width:770px;
 		</table></div>
 			<p>&nbsp;</td>
 			<td align="center" width="40%"><p>
-		<?php echo "<img src='$pluginsurl/images/rlist2.png' align='center' />";?>&nbsp;</p></td>
+		<?php echo "<img src='$aiopluginsurl/images/rlist2.png' align='center' />";?>&nbsp;</p></td>
 		</tr>
 	</table>
 	
 	</div>
-<tr>
-		<td width="100%"><hr/>
-		</td>
-	</tr>
-	<tr>
-		<td width="77%">
-<div class="inner_block" style="width: 1241px; height: 354px">
+
+<div class="simpleTabsContent" style="height: 354px">
 	<?php $checkvalue = ''; if ($aio_related_posts_settings['related_posts_type'] == 'related_grid') { $checkvalue = 'checked';}?>
 	<h2>
 	&nbsp;Show Related Posts As Grid (<font color="#008000">premium only</font>):
@@ -332,26 +326,15 @@ min-width:770px;
 	view.</span></p>
 <table border="0" width="100%" cellspacing="0" cellpadding="0" height="248">
 	<tr>
-		<td width="60%">
-		<div><font color="#C47500"><b>
-			<a href="http://www.wp-buy.com/product/related-posts-all-in-one/">Buy 
-			Full Version Now To Enable This Mode</a></b></font></div>
-	&nbsp;</td>
-		<td align="center" width="40%">&nbsp;<?php echo "<img src='$pluginsurl/images/rgrid2.png' align='center' />";?></td>
+		<td align="center" valign="top">&nbsp;<p><font color="#C47500" size="5"><b>
+			<a target="_blank" href="http://www.wp-buy.com/product/related-posts-all-in-one/">
+		Live Preview</a></b></font>
+			<br><?php echo "<img src='$aiopluginsurl/images/rgrid2.png' align='center' />";?></td>
 	</tr>
 </table>
 </div>
 
-&nbsp;</td>
-	</tr>
-	<tr>
-		<td width="100%"><hr/>
-		</td>
-	</tr>
-	<tr>
-		<td width="77%">
-
-<div class="inner_block">
+<div class="simpleTabsContent">
 	<?php $checkvalue = ''; if ($aio_related_posts_settings['related_posts_type'] == 'related_slider') { $checkvalue = 'checked';}?>
 	<h2>
 	&nbsp;Show Related Posts As Bottom jQuery Slider (<font color="#008000">premium 
@@ -367,20 +350,14 @@ min-width:770px;
 	several options for customization</p>
 		<table border="0" width="100%" cellspacing="0" cellpadding="0" height="253">
 			<tr>
-				<td width="60%">
-		<div><font color="#C47500"><b>
-			<a href="http://www.wp-buy.com/product/related-posts-all-in-one/">Buy 
-			Full Version Now To Enable This Mode</a></b></font></div>
-
-				<p>&nbsp;</td>
-				<td align="center" width="40%">&nbsp;<?php echo "<img src='$pluginsurl/images/rslider2.png' align='center' />";?></td>
+				<td align="center" width="40%" valign="top">&nbsp;<p>
+				<font color="#C47500" size="5"><b>
+				<a target="_blank" href="http://www.wp-buy.com/product/related-posts-all-in-one/">
+				Live Preview</a></b></font>
+			<br><?php echo "<img src='$aiopluginsurl/images/rslider2.png' align='center' />";?></td>
 			</tr>
 	</table>
 </div>
-		</td>
-	</tr>
-	</table>
-
 <p>	<input type="submit" value="     Save all Settings     " name="B4" style="width: 193; height: 29; border: 1px solid #008000; padding-left: 4px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px"></p>
-	</li>
+</div><!--SimpleTabs End-->
 </form></div>
