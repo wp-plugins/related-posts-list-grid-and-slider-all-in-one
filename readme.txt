@@ -1,9 +1,9 @@
 === Related Posts Thumbnails - with css3 styles ===
 Contributors: ashrafweb
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ashrafweb%40gmail%2ecom&lc=US&item_name=aio%20plugins&item_number=aio&amount=19%2e00&currency_code=USD&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
-Tags: google, plugin, posts,related, entries, post, pages, page, slider, list, grid, style
+Tags: google panda, related posts,related entries, similar posts, related articles, best slider,simple related posts,best related post
 Requires at least: 2.9
-Tested up to: 3.9
+Tested up to: 3.9.1
 Stable tag: 1.8
 
 == Description ==
@@ -69,11 +69,12 @@ Thanks!
 * Update sql code to get more equivalent results
 * abbility to extract images from post content if there is no featured image set!
 
-=1.7=
+= 1.7 =
 * CSS Style fixing
 * Image display Fix
 * New way of calculating image views
 
-=1.8=
+= 1.8 =
 * CSS Style fixing
 * New listing views
+* Testing on the 3.9.1 version
