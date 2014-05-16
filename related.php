@@ -4,7 +4,7 @@ Plugin Name: Related Posts Thumbnails - with css3 styles
 Plugin URI: http://www.wp-buy.com/
 Description: Our plugin displaying related posts in a very great way to help visitors staying longer on your blog. You can use this plugin to increasing the page rank of your internal posts to improve your SEO score
 Version: 1.8
-Author: wp-buy.com
+Author: wp-buy
 Author URI: http://www.wp-buy.com/
 */
 ?>
