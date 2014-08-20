@@ -3,8 +3,8 @@ Contributors: wp-buy
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ashrafweb%40gmail%2ecom&lc=US&item_name=aio%20plugins&item_number=aio&amount=19%2e00&currency_code=USD&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: google panda, related posts,related entries, similar posts, related articles, best slider,simple related posts,best related post
 Requires at least: 2.9
-Tested up to: 3.9.1
-Stable tag: 1.8
+Tested up to: 3.9.2
+Stable tag: trunk
 
 == Description ==
 Our plugin displaying related posts in a very great way to help visitors staying longer on your blog. You can use this plugin to increasing the page rank of your internal posts to improve your SEO score.
