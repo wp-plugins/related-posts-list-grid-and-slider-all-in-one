@@ -1,10 +1,10 @@
 <?php ob_start();
 /*
-Plugin Name: Related Posts Thumbnails - with css3 styles
+Plugin Name: wordpress related Posts with thumbnails (Lite)
 Plugin URI: http://www.wp-buy.com/
 Description: Our plugin displaying related posts in a very great way to help visitors staying longer on your blog. You can use this plugin to increasing the page rank of your internal posts to improve your SEO score
-Version: 1.8
-Author: wp-buy
+Version: 3.0.0.1
+Author: wp-buy.com
 Author URI: http://www.wp-buy.com/
 */
 ?>
@@ -14,32 +14,141 @@ include 'the_globals.php';
 $aio_related_posts_settings = aio_read_options();
 $rstyle = $aio_related_posts_settings['related_posts_type'];
 //------------------------------------------------------------------------
+function aio_get_text_align()
+{
+	global $aio_related_posts_settings;
+	
+	$list_text_align = $aio_related_posts_settings['list_text_direction'];
+	
+	if($list_text_align == 'rtl') $list_text_align = 'right';
+	
+	if($list_text_align == 'ltr') $list_text_align = 'left';
+	
+	$text_align = "text-align: $list_text_align;";
+	
+	return $text_align;
+}
+function aio_get_opposite_text_align()
+{
+	global $aio_related_posts_settings;
+	
+	$list_text_align = $aio_related_posts_settings['list_text_direction'];
+	
+	if($list_text_align == 'rtl') $list_text_align = 'left';
+	
+	if($list_text_align == 'ltr') $list_text_align = 'right';
+	
+	$text_align = "text-align: $list_text_align;";
+	
+	return $text_align;
+}
+function aio_get_direction()
+{
+	global $aio_related_posts_settings;
+	
+	$list_text_direction = $aio_related_posts_settings['list_text_direction'];
+	
+	$text_direction = "direction: $list_text_direction;";
+	
+	return $text_direction;
+}
+function aio_get_float()
+{
+	global $aio_related_posts_settings;
+	
+	$list_float = $aio_related_posts_settings['list_image_direction'];
+	
+	$float = "float: $list_float;";
+	
+	return $float;
+}
+function aio_get_opposite_float()
+{
+	global $aio_related_posts_settings;
+	
+	$list_float = $aio_related_posts_settings['list_image_direction'];
+	
+	if($list_float == 'right') 
+		
+		$list_float = 'left';
+	
+	else
+		
+		$list_float = 'right';
+	
+	$float = "float: $list_float;";
+	
+	return $float;
+}
+//------------------------------------------------------------------------
 // Register Script
 function Related_Posts_All_in_One_scripts() {
 	global $aiopluginsurl;
-	wp_register_script('jquery', 'http://code.jquery.com/jquery-1.10.2.min.js', false, '1.10.2');
-	wp_enqueue_script('jquery');
-	wp_register_script( 'slider-jquery-mini', $aiopluginsurl.'/easySlider/js/jquery.min.js', false, '10.1', false );
-	wp_enqueue_script( 'slider-jquery-mini' );
-	wp_register_script( 'easySlider-jquery-mini', $aiopluginsurl.'/easySlider/js/easySlider.js', true, '10.1', true);
-	wp_enqueue_script( 'easySlider-jquery-mini' );
-	wp_register_style( 'easySlider', $aiopluginsurl.'/easySlider/css/easySlider.css');
-	wp_enqueue_style('easySlider');
-	wp_register_script( 'html54IE', $aiopluginsurl.'/easySlider/js/html5.js', false, '1.5', false );
-	wp_enqueue_script( 'html54IE' );
+	global $rstyle;
+	if( is_single() && $rstyle== 'related_slider') {
+		wp_register_script('jquery', 'http://code.jquery.com/jquery-1.10.2.min.js', false, '1.10.2');
+		wp_enqueue_script('jquery');
+		wp_register_script( 'slider-jquery-mini', $aiopluginsurl.'/easySlider/js/jquery.min.js', false, '10.1', false );
+		wp_enqueue_script( 'slider-jquery-mini' );
+		wp_register_script( 'easySlider-jquery-mini', $aiopluginsurl.'/easySlider/js/easySlider.js', true, '10.1', true);
+		wp_enqueue_script( 'easySlider-jquery-mini' );
+		wp_register_style( 'easySlider', $aiopluginsurl.'/easySlider/css/easySlider.css');
+		wp_enqueue_style('easySlider');
+		wp_register_script( 'html54IE', $aiopluginsurl.'/easySlider/js/html5.js', false, '1.5', false );
+		wp_enqueue_script( 'html54IE' );
+	}
 }
 // Hook into the 'wp_enqueue_scripts' action
 add_action( 'wp_enqueue_scripts', 'Related_Posts_All_in_One_scripts' );
 //-------------------------------------------------------SimpleTabs scripts
 function aio_enqueue_scripts() {
 	global $aiopluginsurl;
+	$admincore = $_GET['page'];
+	if( is_admin() && $admincore == 'aio_options_cp') {
 	wp_register_script( 'simpletabsjs', $aiopluginsurl .'/js/simpletabs_1.3.js');
 	wp_enqueue_script( 'simpletabsjs' );
 	wp_register_style( 'simpletabscss', $aiopluginsurl .'/css/simpletabs.css');
 	wp_enqueue_style('simpletabscss');
+	
+	wp_register_style('bootstrapcss', $aiopluginsurl.'/flat-ui/css/bootstrap.css');
+	wp_enqueue_style('bootstrapcss');
+	
+	wp_register_style('flat-ui-css', $aiopluginsurl.'/flat-ui/css/flat-ui.css');
+	wp_enqueue_style('flat-ui-css');
+	
+	wp_register_script('jquery-1.8.3.min.js', $aiopluginsurl.'/flat-ui/js/jquery-1.8.3.min.js');
+	wp_enqueue_script('jquery-1.8.3.min.js');
+	
+	wp_register_script('jquery-ui-1.10.3.custom.min.js', $aiopluginsurl.'/flat-ui/js/jquery-ui-1.10.3.custom.min.js');
+	wp_enqueue_script('jquery-ui-1.10.3.custom.min.js');
+	
+	wp_register_script('jquery.ui.touch-punch.min.js', $aiopluginsurl.'/flat-ui/js/jquery.ui.touch-punch.min.js');
+	wp_enqueue_script('jquery.ui.touch-punch.min.js');
+	
+	wp_register_script('bootstrap.min.js', $aiopluginsurl.'/flat-ui/js/bootstrap.min.js');
+	wp_enqueue_script('bootstrap.min.js');
+	
+	wp_register_script('bootstrap-select.js', $aiopluginsurl.'/flat-ui/js/bootstrap-select.js');
+	wp_enqueue_script('bootstrap-select.js');
+	
+	wp_register_script('bootstrap-switch.js', $aiopluginsurl.'/flat-ui/js/bootstrap-switch.js');
+	wp_enqueue_script('bootstrap-switch.js');
+	
+	wp_register_script('flatui-checkbox.js', $aiopluginsurl.'/flat-ui/js/flatui-checkbox.js');
+	wp_enqueue_script('flatui-checkbox.js');
+	
+	wp_register_script('flatui-radio.js', $aiopluginsurl.'/flat-ui/js/flatui-radio.js');
+	wp_enqueue_script('flatui-radio.js');
+	
+	wp_register_script('jquery.tagsinput.js', $aiopluginsurl.'/flat-ui/js/jquery.tagsinput.js');
+	wp_enqueue_script('jquery.tagsinput.js');
+	
+	wp_register_script('jquery.placeholder.js', $aiopluginsurl.'/flat-ui/js/jquery.placeholder.js');
+	wp_enqueue_script('jquery.placeholder.js');
+	}
 }
 // Hook into the 'wp_enqueue_scripts' action
-add_action( 'admin_head', 'aio_enqueue_scripts' );
+add_action( 'admin_enqueue_scripts', 'aio_enqueue_scripts' );
 //------------------------------------------------------------------------
 function sortTwoDimensionArrayByKey($arr, $arrKey, $sortOrder=SORT_ASC){
 foreach ($arr as $key => $row){
@@ -65,18 +174,16 @@ function get_related_posts_output()
 if (is_single()) {
 	$echoed_content = '';
 	global $rstyle;
-	if($rstyle == 'related_list'){
-		$echoed_content = include 'related_list.php';
+	$rstyle = 'related_list';
+	if($rstyle == 'related_list' || $rstyle == 'related_grid'){
+		$echoed_content = include 'related_blocks.php';
 	}
 	if($rstyle == 'related_slider'){
 		$echoed_content = include 'related_slider.php';
 		$echoed_content = '<div id="related_posts_height_scale"></div>' . $echoed_content;
 	}
-	if($rstyle == 'related_grid'){
-	$echoed_content = include 'related_grid.php';
-	}
 	return $echoed_content;
-}else {
+	}else{
         return $content;
     }
 }
@@ -86,15 +193,8 @@ function get_related_posts_style()
 if (is_single()) {
 	$echoed_content = '';
 	global $rstyle;
-	if($rstyle == 'related_list'){
-		$echoed_content = include 'related_list_style.php';
-	}
-	if($rstyle == 'related_slider'){
-		$echoed_content = include 'related_slider_style.php';
-	}
-	if($rstyle == 'related_grid'){
-		$echoed_content = include 'related_grid_style.php';
-	}
+	$rstyle = 'related_list';
+	$echoed_content = include 'related_blocks_style.php';
 	echo $echoed_content;
 	}
 }
@@ -103,6 +203,15 @@ add_filter('wp_head','get_related_posts_style');
 if ( function_exists( 'add_theme_support' ) ) { 
   add_theme_support( 'post-thumbnails' ); 
 }
+//----------------------------------------------------------
+function aio_image_attachments_define_image_sizes() {
+  add_theme_support('post-thumbnails');
+  global $aio_related_posts_settings;
+  if ( function_exists( 'add_image_size' ) ) {
+			add_image_size( 'aio-thumb', $aio_related_posts_settings['aio_thumbw'] , $aio_related_posts_settings['aio_thumbh'] ,true); ////(True = cropped)
+		}
+}
+add_action('admin_init', 'aio_image_attachments_define_image_sizes');
 //----------------------------------------------------------
 function new_excerpt($charlength) {
 $excerpt = get_the_excerpt();
@@ -138,35 +247,41 @@ function aio_default_options(){
 	$aio_related_posts_settings = 
 	Array (
 			'list_title' => 'Related Posts:', // Title of the list related posts block
-			'list_show_images' => 'Yes', // Display images or not?
-			'list_imagew' => '85', // Thumbnail image width
-			'list_imageh' => '85', // Thumbnail image height
 			'list_vspace' => '2', // Space between rows
+			'list_show_thumbs' => 'Yes', // Display thumbs or not?
+			'list_thumbw' => '85', // Thumbnail thumb width
+			'list_thumbh' => '70', // Thumbnail thumb height
 			'list_custom_image' => 'Image', // Use custom field to display images?
 			'list_posts_limit' => '6', // How many posts to display?
-			'list_css3_effect' => '5', // CSS3 No Effect as default [None,5,10,15]
-			'list_css3_image_radius' => '10', // CSS3 Effect on images radius [None,10,20,45]
-			'list_excerpt_length' => '22', //by words count
+			'list_show_excerpt' => 'Yes',
+			'list_excerpt_length' => '12', //by words count
+			'list_use_css3_effects' => 'Yes',
+			'list_css3_shadow' => '5', //CSS3 No Effect as default [None,5,10,15]
+			'list_css3_thumb_radius' => '45', //CSS3 Effect on images radius [None,10,20,45]
+			'default_thumb' => $default_thumb, //Default thumbnail
+			'list_image_direction' => 'left',
+			'list_text_direction' => 'ltr',
+			
 			'grid_title' => 'Related Posts:', // Title of the grid related posts block
 			'grid_show_images' => 'Yes', // Display images or not?
-			'grid_imagew' => '135', // Thumbnail image width
-			'grid_imageh' => '110', // Thumbnail image height
-			'grid_vspace' => '25', // Space between rows
-			'grid_hspace' => '30', // Space between items
-			'grid_custom_image' => 'Image', // Use custom field to display images
-			'grid_posts_limit' => '6', // How many posts to display in the grid view?
+			'grid_imagew' => '110', // Thumbnail image width
+			'grid_imageh' => '90', // Thumbnail image height
+			'grid_vspace' => '10', // Space between rows
+			'grid_hspace' => '10', // Space between items
+			'a_font_size' => '10', // font size for links under blocks
+			'image_resizing' => 'crop', // How many posts to display in the grid view?
 			'grid_css3_effect' => 'None', // CSS3 No Effect as default
+			
 			'slider_title' => 'Related Posts:', // Title of the slider related posts block
 			'slider_show_images' => 'Yes', // Display images or not?
-			'slider_imagew' => '85', // Thumbnail image width
-			'slider_imageh' => '85', // Thumbnail image height
+			'slider_imagew' => '55', // Thumbnail image width
+			'slider_imageh' => '55', // Thumbnail image height
 			'slider_custom_image' => 'Image', // Use custom field to display images
 			'slider_posts_limit' => '5', // How many posts to display in the slider view?
 			'slider_css3_effect' => 'None', // CSS3 No Effect as default
 			'thumb_default' => $thumb_default, // Default thumbnail image
 			'use_css3_effects' => 'Yes', //
-			'related_posts_type' => 'related_list', // Default thumbnail image
-			'print_credits_link' => 'yes' //else use No
+			'related_posts_type' => 'related_list'
 		);
 	return $aio_related_posts_settings;
 }
@@ -235,15 +350,7 @@ function get_searches($taglist)
 	$limit = 5;
 	$aio_related_posts_settings = aio_read_options();
 	global $rstyle;
-	if($rstyle == 'related_list'){
-		$limit = (stripslashes($aio_related_posts_settings['list_posts_limit']));
-	}
-	if($rstyle == 'related_slider'){
-		$limit = (stripslashes($aio_related_posts_settings['slider_posts_limit']));
-	}
-	if($rstyle == 'related_grid'){
-		$limit = (stripslashes($aio_related_posts_settings['grid_posts_limit']));
-	}
+	$limit = (stripslashes($aio_related_posts_settings['list_posts_limit']));
 	// Make sure the post is not from the future
 	$time_difference = get_settings('gmt_offset');
 	$now = gmdate("Y-m-d H:i:s",(time()+($time_difference*3600)));
@@ -288,13 +395,13 @@ return $merged_searches;
 //------------------------------------------------------------------------
 
 //First use the add_action to add onto the WordPress menu.
-add_action('admin_menu', 'att_add_options');
+add_action('admin_menu', 'aio_add_options');
 //Make our function to call the WordPress function to add to the correct menu.
-function att_add_options() {
-	add_options_page('Related Posts with Thumbnails', 'Related Posts with Thumbnails', 8, 'attachedoptions', 'att_options_page');
+function aio_add_options() {
+	add_options_page('Related Posts with Thumbnails (lite)', 'Related Posts with Thumbnails (lite)', 8, 'aio_options_cp', 'aio_options_page');
 }
 //------------------------------------------------------------------------
-function att_options_page() {
+function aio_options_page() {
       //echo 'Testing. 1, 2, 3. Testing.';
       include "admin-core.php";
 }

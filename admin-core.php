@@ -6,32 +6,44 @@ if($_POST["action"] == 'update')
 {
 	$related_posts_type = $_POST["related_posts_type"];
 	if($related_posts_type == ''){$related_posts_type = 'related_list';}
+	
 	//----------------------------------------------------list options array values
 	$list_title = $_POST["list_title"];
-	$list_show_images = $_POST["list_show_images"];
-	$list_imagew = $_POST["list_imagew"];
-	$list_imageh = $_POST["list_imageh"];
+	$list_show_thumbs = $_POST["list_show_thumbs"]; // Display thumbs or not?
+	$list_thumbw = $_POST["list_thumbw"]; // Thumbnail thumb width
+	$list_thumbh = $_POST["list_thumbh"]; // Thumbnail thumb height
 	$list_vspace = $_POST["list_vspace"];
-	$list_custom_image = $_POST["list_custom_image"];
-	$list_posts_limit = $_POST["list_posts_limit"];
-	$list_css3_effect = $_POST["list_css3_effect"];
-	$list_css3_image_radius = $_POST["list_css3_image_radius"];
+	$list_posts_limit = $_POST["list_posts_limit"]; // How many posts to display?
+	$list_show_excerpt = $_POST["list_show_excerpt"];
 	$list_excerpt_length = $_POST["list_excerpt_length"];
+	$list_use_css3_effects = $_POST["list_use_css3_effects"];
+	$list_css3_shadow = $_POST["list_css3_shadow"];
+	$list_css3_thumb_radius = $_POST["list_css3_thumb_radius"];
+	$default_thumb = $_POST["default_thumb"]; // Default thumbnail thumb
+	$list_Style = $_POST["list_Style"];
+	$list_text_direction = $_POST["list_text_direction"];
+	$list_image_direction = $_POST["list_image_direction"];
+
 	//Validation//
-	if($list_imagew < 70) $list_imagew = 70;
-	if($list_imageh < 70) $list_imageh = 70;
-	if($list_vspace < 2) $list_vspace = 2;
-	if($list_excerpt_length < 12){$list_excerpt_length = '12';}
-	if($list_excerpt_length > 30){$list_excerpt_length = '30';}
+
 	if($list_title == ''){$list_title = 'Related Posts:';}
-	if($list_show_images == ''){$list_show_images = 'Yes';}
-	if($list_imagew == ''){$list_imagew = '85';}
-	if($list_imageh == ''){$list_imageh = '85';}
-	if($list_vspace == ''){$list_vspace = '2';}
+	if($list_show_thumbs == ''){$list_show_thumbs = 'Yes';}
+	if($list_thumbw < 40) $list_thumbw = 40;
+	if($list_thumbh< 40) $list_thumbh= 40;
+	if($list_vspace < 2) $list_vspace = 2;
 	if($list_custom_image == ''){$list_custom_image = 'Image';}
+	if($list_excerpt_length < 8){$list_excerpt_length = '8';}
+	if($list_excerpt_length > 30){$list_excerpt_length = '30';}
+	if($list_thumbw == ''){$list_thumbw = '40';}
+	if($list_thumbh == ''){$list_thumbh = '40';}
 	if($list_posts_limit == ''){$list_posts_limit = '5';}
-	if($list_css3_effect == ''){$list_css3_effect = 'None';}
-	if($list_excerpt_length == ''){$list_excerpt_length = '18';}
+	if($list_use_css3_effects == ''){$list_use_css3_effects = 'None';}
+	if($list_excerpt_length == ''){$list_excerpt_length = '10';}
+	if($list_excerpt_length < 10){$list_excerpt_length = '10';}
+	if($list_excerpt_length > 30){$list_excerpt_length = '30';}
+	if($list_text_direction == ''){$list_text_direction = 'ltr';}
+	if($list_image_direction == ''){$list_image_direction = 'left';}
+
 	//----------------------------------------------------Get grid options array values
 	$grid_title = $_POST["grid_title"];
 	$grid_show_images = $_POST["grid_show_images"];
@@ -39,8 +51,8 @@ if($_POST["action"] == 'update')
 	$grid_imageh = $_POST["grid_imageh"];
 	$grid_vspace = $_POST["grid_vspace"];
 	$grid_hspace = $_POST["grid_hspace"];
-	$grid_custom_image = $_POST["grid_custom_image"];
-	$grid_posts_limit = $_POST["grid_posts_limit"];
+	$a_font_size = $_POST["a_font_size"];
+	$image_resizing = $_POST["image_resizing"];
 	//Validation//
 	if($grid_imagew < 90) $grid_imagew = 90;
 	if($grid_imageh < 90) $grid_imageh = 90;
@@ -50,8 +62,8 @@ if($_POST["action"] == 'update')
 	if($grid_imageh == ''){$grid_imageh = '85';}
 	if($grid_vspace == ''){$grid_vspace = '33';}
 	if($grid_hspace == ''){$grid_hspace = '33';}
-	if($grid_custom_image == ''){$grid_custom_image = 'Image';}
-	if($grid_posts_limit == ''){$grid_posts_limit = '6';}
+	if($a_font_size == ''){$a_font_size = '10';}
+	if($image_resizing == ''){$image_resizing = '6';}
 	//-----------------------------------------------------get slider options array values
 	$slider_title = $_POST["slider_title"];
 	$slider_show_images = $_POST["slider_show_images"];
@@ -79,23 +91,30 @@ if($_POST["action"] == 'update')
 $aio_related_posts_settings = 
 Array (
 		'list_title' => $list_title, // Title of the list related posts block
-		'list_show_images' => $list_show_images, // Display images or not?
-		'list_imagew' => $list_imagew, // Thumbnail image width
-		'list_imageh' => $list_imageh, // Thumbnail image height
 		'list_vspace' => $list_vspace, // Space between rows
+		'list_show_thumbs' => $list_show_thumbs, // Display thumbs or not?
+		'list_thumbw' => $list_thumbw, // Thumbnail thumb width
+		'list_thumbh' => $list_thumbh, // Thumbnail thumb height
 		'list_custom_image' => $list_custom_image, // Use custom field to display images?
 		'list_posts_limit' => $list_posts_limit, // How many posts to display?
-		'list_css3_effect' => $list_css3_effect,
-		'list_css3_image_radius' => $list_css3_image_radius,
-		'list_excerpt_length' => $list_excerpt_length,
+		'list_show_excerpt' => $list_show_excerpt,
+		'list_excerpt_length' => $list_excerpt_length, //by words count
+		'list_use_css3_effects' => $list_use_css3_effects,
+		'list_css3_shadow' => $list_css3_shadow, //CSS3 No Effect as default [None,5,10,15]
+		'list_css3_thumb_radius' => $list_css3_thumb_radius, //CSS3 Effect on images radius [None,10,20,45]
+		'default_thumb' => $default_thumb, //Default thumbnail
+		'list_image_direction' => $list_image_direction,
+		'list_text_direction' => $list_text_direction,
+		
 		'grid_title' => $grid_title, // Title of the grid related posts block
 		'grid_show_images' => $grid_show_images, // Display images or not?
 		'grid_imagew' => $grid_imagew, // Thumbnail image width
 		'grid_imageh' => $grid_imageh, // Thumbnail image height
 		'grid_vspace' => $grid_vspace, // Space between rows
 		'grid_hspace' => $grid_hspace, // Space between items
-		'grid_custom_image' => $grid_custom_image, // Use custom field to display images
-		'grid_posts_limit' => $grid_posts_limit, // How many posts to display in the grid view?
+		'a_font_size' => $a_font_size, // Use custom field to display images
+		'image_resizing' => $image_resizing, // How many posts to display in the grid view?
+		
 		'slider_title' => $slider_title, // Title of the slider related posts block
 		'slider_show_images' => $slider_show_images, // Display images or not?
 		'slider_imagew' => $slider_imagew, // Thumbnail image width
@@ -104,9 +123,8 @@ Array (
 		'slider_posts_limit' => $slider_posts_limit, // How many posts to display in the slider view?
 		'slider_css3_effect' => $slider_css3_effect,
 		'thumb_default' => $thumb_default, // Default thumbnail image
-		'use_css3_effects' => $use_css3_effects, // Default thumbnail image
-		'related_posts_type' => $related_posts_type, // Default thumbnail image
-		'print_credits_link' => $print_credits_link
+		'use_css3_effects' => $use_css3_effects,
+		'related_posts_type' => $related_posts_type
 	);
 	if ($aio_related_posts_settings != '' ) {
 	    update_option( 'aio_settings' , $aio_related_posts_settings );
@@ -131,7 +149,6 @@ margin: 10px;
 background-color: #ffffff;
 border:1px solid #EBDDE2;
 display: relative;
-overflow: auto;
 }
 .inner_block{
 height: 370px;
@@ -146,20 +163,20 @@ min-width:770px;
     padding: 10px;
     margin: 15px;
     }
+.seprator-cells{
+border-top: 1px dotted #E9E9E9;
+    font-size: 2px;
+    line-height: 1px;
+    }
+.options-tab{
+	display:none;
+}
+.options-tabchecked{
+	display: inline;
+}
 </style>
-<div id="donate">
-<table border="0" width="100%" cellspacing="0" cellpadding="0" dir="ltr" height="88">
-	<tr>
-		<td align="center"><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
-">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form></td>
-		<td><strong>Your donation is like a diamond and Makes a Difference: it's forever</strong></td>
-	</tr>
-</table>
+<div>
+		<h3>Related Posts with Thumbnails (<font color="#008000">Lite</font>)</h3>
 </div>
 <div id="aio_admin_main">
 <form method="POST">
@@ -168,40 +185,100 @@ min-width:770px;
 
 <div class="simpleTabs">
 <ul class="simpleTabsNavigation">
-    <li><a href="#">Classic layout</a></li>
-    <li><a href="#">Premium layout (1)</a></li>
-    <li><a href="#">Premium layout (2)</a></li>
+    <li><a href="#">General options</a></li>
+    <li><a href="#">Layout's manager</a></li>
+    <li><a href="#">About</a></li>
 </ul>
 <div class="simpleTabsContent">
-	<?php $checkvalue = ''; if ($aio_related_posts_settings['related_posts_type'] == 'related_list') { $checkvalue = 'checked';}?>
-	<h2>
-	<input type="radio" value="related_list" name="related_posts_type" <?php echo $checkvalue ?> checked > Show Related Posts As List: 
-	<?php if ($aio_related_posts_settings['related_posts_type'] == 'related_list') {?>
-	<font face="Times New Roman" color="#008000">&#8730;</font><?php } ?></h2>
-	<p><span class="st">&nbsp;&nbsp; In this mode the related posts to your 
-	content will be displayed as a list of items row by row as a list, each row 
-	(post) contain an image ant title and a small excerpt, you can change the 
-	values for those elements to mach your needs as you like, at the options 
-	block you can see that there is a default and best values web prefer for 
-	each option, we recommend to let take the default values to get the best 
-	view.</span></p>
 	<table border="0" width="100%" cellspacing="0" cellpadding="0" height="384">
 		<tr>
-			<td width="60%">
-	<div><font color="#C47500"><b>Change Options:</b></font></div>
-	<div style="width: 520px; height: 366px; float: left; border: 1px solid #E9E9E9; padding: 4px" id="layer1">
-		<table border="0" width="511" height="362" cellspacing="0" cellpadding="0">
+			<td>
+	<div style="float: left;width:100%; padding: 4px" id="layer1">
+	<table width="55%" height="406" cellspacing="0" cellpadding="0">
+
 			<tr>
-				<td width="177" colspan="2">Related list custom title</td>
-				<td width="211">
-				<input type="text" name="list_title" size="32" style="width: 95; height:22" value="<?php echo $aio_related_posts_settings['list_title']; ?>"></td>
-				<td width="123">&nbsp;</td>
+				<td width="25%" align="left" rowspan="2">
+				<font face="Tahoma" size="2">Title &amp; Limit</font></td>
+
+				<td width="19%" align="center" height="11" style="padding: 0">
+				<font face="Tahoma" style="font-size: 8pt" color="#808080">
+				Related custom title</font></td>
+
+				<td width="9%" align="center" height="11" style="padding: 0">
+				</td>
+
+				<td width="33%" align="center" height="11" style="padding: 0">
+				<font face="Tahoma" style="font-size: 8pt" color="#808080">Posts limit</font></td>
+
 			</tr>
+
 			<tr>
-				<td width="177" colspan="2">Show images</td>
-				<td width="211"><select size="1" name="list_show_images">
+
+				<td width="19%" align="center">
+				<font face="Tahoma">
+				<input type="text" class="form-control" placeholder="Box Title" name="list_title" size="32" style="width: 95; height:22" value="<?php echo $aio_related_posts_settings['list_title']; ?>"></font></td>
+
+				<td width="9%" align="center">
+				&nbsp;</td>
+
+				<td width="33%" align="center">
+				<font face="Tahoma"><select size="1" name="list_posts_limit">
+
+				<?php for($i=1;$i<=9;$i++)
+
+				{
+
+					if ($i == $aio_related_posts_settings['list_posts_limit'])
+
+						echo '<option selected>'. $i .'</option>';
+
+					else
+
+						echo '<option>'. $i .'</option>';
+
+				}
+
+				?>
+
+				</select></font></td>
+
+			</tr>
+
+			<tr>
+
+				<td width="86%" align="left" colspan="4" class="seprator-cells">
+				&nbsp;</td>
+
+			</tr>
+
+			<tr>
+
+				<td width="25%" align="left" rowspan="2">
+				<font face="Tahoma" size="2">Thumbnail options</font></td>
+
+				<td width="19%" height="11" align="center" style="padding: 0">
+				<font face="Tahoma" style="font-size: 8pt" color="#808080">Show thumbnails</font></td>
+
+				<td width="9%" height="11" style="padding: 0">
+
+				</td>
+
+				<td width="33%" height="11" style="padding: 0">
+
+				<p align="center">
+				<font face="Tahoma" style="font-size: 8pt" color="#808080">
+				Resizing</font></td>
+
+			</tr>
+
+			<tr>
+
+				<td width="19%">
+				<p align="center">
+				<font face="Tahoma"><select size="1" name="list_show_thumbs">
+
 				<?php 
-				if ($aio_related_posts_settings['list_show_images'] == 'Yes')
+				if ($aio_related_posts_settings['list_show_thumbs'] == 'Yes')
 					{
 						echo '<option selected>Yes</option>';
 						echo '<option>No</option>';
@@ -212,152 +289,588 @@ min-width:770px;
 						echo '<option selected>No</option>';
 					}
 				?>
-				</select></td>
-				<td width="123">&nbsp;</td>
-			</tr>
-			<tr>
-				<td width="87">Image width</td>
-				<td title="Best Value: 85px" width="90"><?php echo "<img title='Best Value: 85px' src='$aiopluginsurl/images/what.gif' align='center' />";?></td>
-				<td width="211">
-				<input type="text" name="list_imagew" size="12" value="<?php echo $aio_related_posts_settings['list_imagew']; ?>"> px</td>
-				<td width="123"><font color="#008000">Min value: 70</font></td>
-			</tr>
-			<tr>
-				<td width="87">Image height</td>
-				<td title="Best Value: 85px" width="90"><?php echo "<img title='Best Value: 85px' src='$aiopluginsurl/images/what.gif' align='center' />";?></td>
-				<td width="211">
-				<input type="text" name="list_imageh" size="12" value="<?php echo $aio_related_posts_settings['list_imageh']; ?>"> px</td>
-				<td width="123">
-				<font color="#008000">Min value: 70</font></td>
-			</tr>
-			<tr>
-				<td width="177" colspan="2"><font size="2">Vertical space between 
-				rows</font></td>
-				<td width="211">
-				<input type="text" name="list_vspace" size="12" value="<?php echo $aio_related_posts_settings['list_vspace']; ?>"> px</td>
-				<td width="123"><font color="#008000">Min value: 2</font></td>
-			</tr>
-			<tr>
-				<td width="177" colspan="2">Use custom image field</td>
-				<td width="211">
-				<input type="text" name="list_custom_image" size="12" value="<?php echo $aio_related_posts_settings['list_custom_image']; ?>"></td>
-				<td width="123"><font color="#008000">Default: Image</font></td>
-			</tr>
-			<tr>
-				<td width="177" colspan="2">Posts limit</td>
-				<td width="211"><select size="1" name="list_posts_limit">
-				<?php for($i=1;$i<=9;$i++)
-				{
-					if ($i == $aio_related_posts_settings['list_posts_limit'])
-						echo '<option selected>'. $i .'</option>';
-					else
-						echo '<option>'. $i .'</option>';
-				}
-				?>
-				</select></td>
-				<td width="123">
-				<font color="#008000">Default: 5</font></td>
-			</tr>
-			<tr>
-				<td width="177" colspan="2">Excerpt length in words</td>
-				<td width="211">
-				<input type="text" name="list_excerpt_length" size="12" value="<?php echo $aio_related_posts_settings['list_excerpt_length']; ?>">words</td>
-				<td width="123">
-				<font color="#008000">Best value: 18</font></td>
-			</tr>
-			<tr>
-				<td width="177" colspan="2">CSS3 Effects on images</td>
-				<td width="211"><select size="1" name="list_css3_effect">
-				<?php 
-				$choice = '';
-				$css3_temp = $aio_related_posts_settings['list_css3_effect']; ?>
-				<?php if ($css3_temp == 'None'){$choice = 'selected';}else{$choice = '';} ?>
-				<option <?php echo $choice ?> value="None">None</option>
-				<?php if ($css3_temp == '5'){$choice = 'selected';}else{$choice = '';} ?>
-				<option <?php echo $choice ?> value="5">shadow 5px small</option>
-				<?php if ($css3_temp == '10'){$choice = 'selected';}else{$choice = '';} ?>
-				<option <?php echo $choice ?> value="10">shadow 10px medium</option>
-				<?php if ($css3_temp == '15'){$choice = 'selected';}else{$choice = '';} ?>
-				<option <?php echo $choice ?> value="15">shadow 15px big</option>
-				</select></td>
-				<td width="123">
+				</select></font></td>
+
+				<td width="9%">
+
 				&nbsp;</td>
-			</tr>
-			<tr>
-				<td width="177" colspan="2">CSS3 image effects</td>
-				<td width="211"><select size="1" name="list_css3_image_radius">
+
+				<td width="33%" align="center">
+
+				<font face="Tahoma">
+				<select size="1" name="image_resizing">
+
 				<?php
+
 				$choice = '';
-				$css3_temp = $aio_related_posts_settings['list_css3_image_radius']; ?>
-				<?php if ($css3_temp == 'None'){$choice = 'selected';}else{$choice = '';} ?>
-				<option <?php echo $choice ?> value="None">None</option>
-				<?php if ($css3_temp == '10'){$choice = 'selected';}else{$choice = '';} ?>
-				<option <?php echo $choice ?> value="10">small radius 10px</option>
-				<?php if ($css3_temp == '20'){$choice = 'selected';}else{$choice = '';} ?>
-				<option <?php echo $choice ?> value="20">medium radius 20px</option>
-				<?php if ($css3_temp == '45'){$choice = 'selected';}else{$choice = '';} ?>
-				<option <?php echo $choice ?> value="45">rounded radius</option>
-				</select></td>
-				<td width="123">
-				&nbsp;</td>
+
+				$list_image_resizing_temp = $aio_related_posts_settings['image_resizing']; ?>
+
+				<?php if ($list_image_resizing_temp == 'crop'){$choice = 'selected';}else{$choice = '';} ?>
+
+				<option <?php echo $choice ?> value="crop">Crop images</option>
+				
+				<?php if ($list_image_resizing_temp == 'fit'){$choice = 'selected';}else{$choice = '';} ?>
+
+				<option <?php echo $choice ?> value="fit">Resize to fit the container</option>
+
+				</select></font></td>
+
 			</tr>
-		</table></div>
+
+			<tr>
+
+				<td width="86%" align="left" colspan="4" class="seprator-cells">
+				&nbsp;</td>
+
+			</tr>
+
+			<tr>
+
+				<td width="25%" rowspan="2" align="left">
+				<font face="Tahoma" style="font-size: 10pt">Excerpt options</font></td>
+
+				<td width="19%" align="center" height="11" style="padding: 0">
+				<font face="Tahoma" style="font-size: 8pt" color="#808080">Show Excerpt</font></td>
+
+				<td width="9%" align="center" height="11" style="padding: 0">
+
+				</td>
+
+				<td width="33%" align="center" height="11" style="padding: 0">
+
+				<font face="Tahoma" style="font-size: 8pt" color="#808080">Excerpt length in words</font></td>
+
+			</tr>
+
+			<tr>
+
+				<td width="19%" align="center">
+
+				<font face="Tahoma"><select size="1" name="list_show_excerpt">
+				<?php
+
+				$choice = '';
+
+				$list_show_excerpt_temp = $aio_related_posts_settings['list_show_excerpt']; ?>
+
+				<?php if ($list_show_excerpt_temp == 'Yes'){$choice = 'selected';}else{$choice = '';} ?>
+
+				<option <?php echo $choice ?> value="Yes">Yes</option>
+
+				<?php if ($list_show_excerpt_temp == 'No'){$choice = 'selected';}else{$choice = '';} ?>
+
+				<option <?php echo $choice ?> value="No">No</option>
+
+				</select></font></td>
+
+				<td width="9%" align="center">
+
+				&nbsp;</td>
+
+				<td width="33%" align="center">
+
+				<font face="Tahoma">
+
+				<input type="text" class="form-control" name="list_excerpt_length" size="12" value="<?php echo $aio_related_posts_settings['list_excerpt_length']; ?>"></font></td>
+
+			</tr>
+
+			<tr>
+
+				<td width="86%" align="left" colspan="4" class="seprator-cells">
+				&nbsp;</td>
+
+			</tr>
+
+			<tr>
+
+				<td width="25%" rowspan="2">
+				<font face="Tahoma" size="2">Enable </font>
+				<font face="Tahoma" style="font-size: 10pt">CSS3 Effects</font></td>
+
+				<td width="19%" height="11" align="center" style="padding: 0">
+				<font style="font-size: 8pt" face="Tahoma" color="#808080">
+				Enable <font style="font-size: 8pt">CSS3 Effects</font></font></td>
+
+				<td width="9%" height="11" style="padding: 0">
+
+				</td>
+
+				<td width="33%" align="center" height="11" style="padding: 0">
+
+				</td>
+
+			</tr>
+
+			<tr>
+
+				<td width="19%">
+
+				<p align="center">
+
+				<font color="#FF0000">Premium</font><font face="Tahoma">
+								
+				</font></td>
+
+				<td width="42%" colspan="2">
+				<p align="center">
+				<font style="font-size: 8pt" face="Tahoma" color="#808080">Enlarge image when passing the mouse over it</font></td>
+
+			</tr>
+
+			<tr>
+
+				<td width="86%" colspan="4" class="seprator-cells">
+				&nbsp;</td>
+
+			</tr>
+
+			<tr>
+
+				<td width="25%" rowspan="2">
+				<font face="Tahoma" style="font-size: 10pt">CSS3 effects</font></td>
+
+				<td width="19%" height="11" align="center" style="padding: 0">
+				<font face="Tahoma" style="font-size: 8pt" color="#808080">CSS3 (shadow) effect</font></td>
+
+				<td width="9%" height="11" style="padding: 0">
+
+				</td>
+
+				<td width="33%" align="center" height="11" style="padding: 0">
+
+				<font face="Tahoma" style="font-size: 8pt" color="#808080">CSS3 (radius) effect</font></td>
+
+			</tr>
+
+			<tr>
+
+				<td width="19%" height="22">
+				<p align="center"><font color="#FF0000">Premium</font></td>
+
+				<td width="9%" height="22">
+
+				&nbsp;</td>
+
+				<td width="33%" align="center" height="22">
+
+				<font color="#FF0000">Premium</font></td>
+
+			</tr>
+
+			<tr>
+
+				<td width="86%" colspan="4" class="seprator-cells">
+				&nbsp;</td>
+
+			</tr>
+
+			<tr>
+
+				<td width="25%" height="41" rowspan="2">
+				<font face="Tahoma" style="font-size: 10pt">Direction</font></td>
+
+				<td width="19%" align="center" height="19" style="padding: 0">
+				<font face="Tahoma" style="font-size: 8pt" color="#808080">Image direction</font></td>
+
+				<td width="9%" align="center" height="19" style="padding: 0">
+
+				&nbsp;</td>
+
+				<td width="33%" align="center" height="19" style="padding: 0">
+
+				<font face="Tahoma" style="font-size: 8pt" color="#808080">Text direction</font></td>
+
+			</tr>
+
+			<tr>
+
+				<td width="19%" align="center" height="22">
+				<font face="Tahoma"><select size="1" name="list_image_direction">
+
+				<?php
+
+				$choice = '';
+
+				$list_image_dir_temp = $aio_related_posts_settings['list_image_direction']; ?>
+
+				<?php if ($list_image_dir_temp == 'left'){$choice = 'selected';}else{$choice = '';} ?>
+
+				<option <?php echo $choice ?> value="left">Left</option>
+
+				<?php if ($list_image_dir_temp == 'right'){$choice = 'selected';}else{$choice = '';} ?>
+
+				<option <?php echo $choice ?> value="right">Right</option>
+
+				</select></font></td>
+
+				<td width="9%" align="center" height="22">
+
+				&nbsp;</td>
+
+				<td width="33%" align="center" height="22">
+
+				<font face="Tahoma"><select size="1" name="list_text_direction">
+
+				<?php
+
+				$choice = '';
+
+				$list_text_direction_temp = $aio_related_posts_settings['list_text_direction']; ?>
+
+				<?php if ($list_text_direction_temp == 'ltr'){$choice = 'selected';}else{$choice = '';} ?>
+
+				<option <?php echo $choice ?> value="ltr">Left To Right</option>
+				
+				<?php if ($list_text_direction_temp == 'center'){$choice = 'selected';}else{$choice = '';} ?>
+
+				<option <?php echo $choice ?> value="center">Center</option>
+
+				<?php if ($list_text_direction_temp == 'rtl'){$choice = 'selected';}else{$choice = '';} ?>
+
+				<option <?php echo $choice ?> value="rtl">Right To Left</option>
+
+				</select></font></td>
+
+			</tr>
+
+			<tr>
+
+				<td width="86%" height="22" colspan="4" class="seprator-cells">
+				&nbsp;</td>
+
+			</tr>
+
+			<tr>
+
+				<td width="25%" rowspan="2">
+				<font face="Tahoma" size="2">Other options</font></td>
+
+				<td width="19%" height="19" align="center" style="padding: 0">
+
+				<font face="Tahoma" style="font-size: 8pt" color="#808080">Custom image field</font></td>
+
+				<td width="9%" height="19" style="padding: 0">
+
+				&nbsp;</td>
+
+				<td width="33%" height="19" align="center" style="padding: 0">
+
+				&nbsp;</td>
+
+			</tr>
+
+			<tr>
+
+				<td width="19%">
+				<p align="center">
+				<font face="Tahoma">
+				<input type="text" class="form-control" name="list_custom_image" size="12" value="<?php echo $aio_related_posts_settings['list_custom_image']; ?>"></font></td>
+
+				<td width="9%">
+
+				&nbsp;</td>
+
+				<td width="33%">
+
+				<p align="center">
+				&nbsp;</td>
+
+			</tr>
+
+			<tr>
+
+				<td width="25%" height="19">
+				<font color="#FFFFFF">_________________________________</font></td>
+
+				<td width="19%" height="19">
+				&nbsp;</td>
+
+				<td width="9%" height="19">
+
+				<p align="center"><font color="#FFFFFF">_______</font></td>
+
+				<td width="33%" height="19">
+
+				&nbsp;</td>
+
+			</tr>
+
+			</table>
+	
+		</div>
 			<p>&nbsp;</td>
-			<td align="center" width="40%"><p>
-		<?php echo "<img src='$aiopluginsurl/images/rlist2.png' align='center' />";?>&nbsp;</p></td>
 		</tr>
 	</table>
 	
 	</div>
+<script>
+function displaytab(tabname)
+	{
+	curdisplay = document.getElementById(tabname).style.display;
+    	if(tabname == 'list-options-tab' && curdisplay != 'inline')
+    	{
+    		document.getElementById('list-options-tab').style.display = 'inline';
+    		document.getElementById('grid-options-tab').style.display = 'none';
+    		document.getElementById('slider-options-tab').style.display = 'none';
+    	}
+    	if(tabname == 'grid-options-tab' && curdisplay != 'inline')
+    	{
+    		document.getElementById('list-options-tab').style.display = 'none';
+    		document.getElementById('grid-options-tab').style.display = 'inline';
+    		document.getElementById('slider-options-tab').style.display = 'none';
+    	}
+    	if(tabname == 'slider-options-tab' && curdisplay != 'inline')
+    	{
+    		document.getElementById('list-options-tab').style.display = 'none';
+    		document.getElementById('grid-options-tab').style.display = 'none';
+    		document.getElementById('slider-options-tab').style.display = 'inline';
+    	}
+	}
+</script>
 
-<div class="simpleTabsContent" style="height: 354px">
-	<?php $checkvalue = ''; if ($aio_related_posts_settings['related_posts_type'] == 'related_grid') { $checkvalue = 'checked';}?>
-	<h2>
-	&nbsp;Show Related Posts As Grid (<font color="#008000">premium only</font>):
-	<?php if ($aio_related_posts_settings['related_posts_type'] == 'related_grid') {?>
-	<font face="Times New Roman" color="#008000">&#8730;</font><?php } ?>
-	</h2>
+<div class="simpleTabsContent">
+<?php $checkvalue = ''; if ($aio_related_posts_settings['related_posts_type'] == 'related_list') { $checkvalue = 'checked';}?>
+	<label onclick="displaytab('list-options-tab');" class="radio">
+		<input id="related_list_radio" type="radio" data-toggle="radio" value="related_list" name="related_posts_type" <?php echo $checkvalue ?> checked >
+	<h4>Show Related Posts As List:
+	<?php if ($aio_related_posts_settings['related_posts_type'] == 'related_list') {?>
+	<font face="Times New Roman" color="#008000">&#8730;</font><?php } ?></h4>
+	</label>
+<div class="options-tab<?php echo $checkvalue; ?>" id="list-options-tab">
 	<p><span class="st">&nbsp;&nbsp; In this mode the related posts to your 
-	content will be displayed as a list of items as a grid of rows, each row 
-	contain some items and each item (post) an image ant title, you can change 
-	the values for those elements to mach your needs as you like, at the options 
+	content will be displayed as a list of items row by row as a list, each row 
+	(post) contain an image ant title and a small excerpt, you can change the 
+	values for those elements to mach your needs as you like, at the options 
 	block you can see that there is a default and best values web prefer for 
 	each option, we recommend to let take the default values to get the best 
 	view.</span></p>
-<table border="0" width="100%" cellspacing="0" cellpadding="0" height="248">
+	<table width="64%" height="51" cellspacing="0" cellpadding="0">
+
+			<tr>
+
+				<td width="25%" rowspan="2" align="left">
+				<font face="Tahoma" style="font-size: 10pt">Thumbnail options</font></td>
+
+				<td width="19%" height="20" align="center" style="padding: 0">
+				<font face="Tahoma" style="font-size: 8pt" color="#808080"> 
+				&nbsp;Thumbnail width</font></td>
+
+				<td width="9%" height="20" style="padding: 0">
+
+				</td>
+
+				<td width="19%" align="center" height="20" style="padding: 0">
+
+				<font face="Tahoma" style="font-size: 8pt" color="#808080">
+				Thumbnail height</font></td>
+
+			</tr>
+
+			<tr>
+
+				<td width="19%" height="41" align="center" style="padding: 0">
+
+				<font color="#808080" face="Tahoma">
+				<span style="font-size: 8pt">
+
+				<input type="text" placeholder="Min : 40 & Best: 65" class="form-control" placeholder="Thumb width in pixels" name="list_thumbw" size="12" value="<?php echo $aio_related_posts_settings['list_thumbw']; ?>"></span></font></td>
+
+				<td width="9%" height="41" style="padding: 0">
+
+				<p align="center">
+				<img border="0" src="<?php echo $aiopluginsurl; ?>/images/thumbnailwh.png"></td>
+
+				<td width="19%" align="center" height="41" style="padding: 0">
+
+				<font face="Tahoma">
+
+				<input type="text" placeholder="Min : 40 & Best: 65" class="form-control" placeholder="Thumb hieght in pixels" name="list_thumbh" size="12" value="<?php echo $aio_related_posts_settings['list_thumbh']; ?>"></font></td>
+
+			</tr>
+
+			<tr>
+
+				<td width="25%" rowspan="3" align="left">
+				Spacing</td>
+
+				<td width="19%" height="19" align="center" style="padding: 0">
+
+				<font face="Tahoma" style="font-size: 8pt" color="#808080">Vertical space between 
+				rows</font></td>
+
+				<td width="9%" height="19" style="padding: 0">
+
+				&nbsp;</td>
+
+				<td width="19%" align="center" height="19" style="padding: 0">
+
+				&nbsp;</td>
+
+			</tr>
+
+			<tr>
+
+				<td width="19%" height="33" align="center" style="padding: 0">
+
+				<font face="Tahoma">
+				<input type="text" class="form-control" name="list_vspace" size="12" value="<?php echo $aio_related_posts_settings['list_vspace']; ?>"></font></td>
+
+				<td width="9%" height="33" style="padding: 0">
+
+				<p align="center"><img border="0" src="<?php echo $aiopluginsurl; ?>/images/vspace.png"></td>
+
+				<td width="19%" align="center" height="33" style="padding: 0">
+
+				&nbsp;</td>
+
+			</tr>
+
+			</table>
+</div>
+		
+	<?php $checkvalue = ''; if ($aio_related_posts_settings['related_posts_type'] == 'related_grid') { $checkvalue = 'checked';}?>
+	<label onclick="displaytab('grid-options-tab');" class="radio">
+		<input type="radio" data-toggle="radio" value="related_grid" name="related_posts_type" <?php echo $checkvalue ?>>
+	<h4>Show Related Posts As Grid:
+	<?php if ($aio_related_posts_settings['related_posts_type'] == 'related_grid') {?>
+	<font face="Times New Roman" color="#008000">&#8730;</font><?php } ?>
+	</h4>
+	</label>
+<div class="options-tab<?php echo $checkvalue; ?>" id="grid-options-tab">
+	<p><span class="st">&nbsp;&nbsp; In this mode the related posts to your 
+	content will be displayed as a list of items as a grid of rows, each row 
+	contain some items and each item (post) an image and title</span></p>
+	<table border="0" width="100%" cellspacing="0" cellpadding="0">
 	<tr>
-		<td align="center" valign="top">&nbsp;<p><font color="#C47500" size="5"><b>
+		<td>
+		<div id="layer2">
+		<table border="0" width="641" height="190" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="587" style="border-top: 1px dotted #E9E9E9; border-bottom: 1px dotted #E9E9E9; padding-left: 4px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px">
+				<p align="center"><font color="#C47500" size="5"><b>
 			<a target="_blank" href="http://www.wp-buy.com/product/related-posts-all-in-one/">
-		Live Preview</a></b></font>
-			<br><?php echo "<img src='$aiopluginsurl/images/rgrid2.png' align='center' />";?></td>
+		Live Preview &amp; pricing</a></b></font></td>
+			</tr>
+			</table></div>
+&nbsp;</td>
 	</tr>
 </table>
 </div>
-
-<div class="simpleTabsContent">
 	<?php $checkvalue = ''; if ($aio_related_posts_settings['related_posts_type'] == 'related_slider') { $checkvalue = 'checked';}?>
-	<h2>
-	&nbsp;Show Related Posts As Bottom jQuery Slider (<font color="#008000">premium 
-	only</font>):
+	<label onclick="displaytab('slider-options-tab');" class="radio">
+		<input type="radio" data-toggle="radio" value="related_slider" name="related_posts_type" <?php echo $checkvalue ?>>
+	<h4>
+	Show Related Posts As 
+	Bottom jQuery Slider:
 	<?php if ($aio_related_posts_settings['related_posts_type'] == 'related_slider') {?>
 	<font face="Times New Roman" color="#008000">&#8730;</font><?php } ?>
-	</h2>
-	<p><span dir="ltr"><span class="st">Displaying 
-	<em style="font-style: normal">related posts</em> in a very great way to 
-	help visitors staying longer on your blog. using this mode will give your 
-	pages the perfect animation, </span></span>it create a rotating content 
-	module. It works by creating &quot;<b>slides</b>&quot; of related posts and you have 
-	several options for customization</p>
-		<table border="0" width="100%" cellspacing="0" cellpadding="0" height="253">
+	</h4>
+	</label>
+<div class="options-tab<?php echo $checkvalue; ?>" id="slider-options-tab">
+	<p>It works by creating &quot;<b>slides</b>&quot; of related 
+	posts and you have several options for customization</p>
+	<table border="0" width="100%" cellspacing="0" cellpadding="0">
 			<tr>
-				<td align="center" width="40%" valign="top">&nbsp;<p>
-				<font color="#C47500" size="5"><b>
-				<a target="_blank" href="http://www.wp-buy.com/product/related-posts-all-in-one/">
-				Live Preview</a></b></font>
-			<br><?php echo "<img src='$aiopluginsurl/images/rslider2.png' align='center' />";?></td>
+				<td width="60%">
+		<div id="layer3">
+		<table border="0" width="642" height="149" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="641">
+				<p align="center"><font color="#C47500" size="5"><b>
+			<a target="_blank" href="http://www.wp-buy.com/product/related-posts-all-in-one/">
+		Live Preview &amp; pricing</a></b></font></td>
+			</tr>
+			</table></div>
+
+				<p>&nbsp;</td>
 			</tr>
 	</table>
 </div>
-<p>	<input type="submit" value="     Save all Settings     " name="B4" style="width: 193; height: 29; border: 1px solid #008000; padding-left: 4px; padding-right: 4px; padding-top: 1px; padding-bottom: 1px"></p>
+
+</div>
+
+<div class="simpleTabsContent">
+		<h4>Key features</h4>
+		<ul>
+			<li><font style="font-size: 10pt" face="Tahoma">Help your readers discover your own related content by 
+			automatically linking to it at the bottom of each post.</font></li>
+			<li><font style="font-size: 10pt" face="Tahoma">Help your readers find other related content from your old 
+			content</font></li>
+			<li><strong>Customize thumbnail layout</strong> as you like</li>
+			<li><font style="font-size: 10pt" face="Tahoma"><b>Automatic</b>: it will 
+			start displaying related posts on your site automatically after the 
+			content when you activate the plugin. No need to edit template files</font></li>
+			<li><font style="font-size: 10pt" face="Tahoma"><b>The algorithm</b>: Find 
+			related posts by title and/or content of the current post</font></li>
+			<li><font style="font-size: 10pt" face="Tahoma">An advanced and 
+			versatile algorithm: Using a customizable algorithm considering post 
+			titles, content, tags, categories, and custom taxonomies</font></li>
+			<li><font style="font-size: 10pt; font-weight:700" face="Tahoma">Thumbnail support:
+			</font>
+			<ul>
+				<li><font style="font-size: 10pt" face="Tahoma">Support for 
+				WordPress post thumbnails</font></li>
+				<li><font style="font-size: 10pt" face="Tahoma">Auto-extract the 
+				first image in your post to be displayed as a thumbnail</font></li>
+				<li><font style="font-size: 10pt" face="Tahoma">Manually enter 
+				the URL of the thumbnail via WordPress meta fields. Specify this 
+				using the meta box in your Edit screens.</font></li>
+			</ul></li>
+			<li><font style="font-size: 10pt" face="Tahoma"><b>Styles</b>: The 
+			output is wrapped in CSS classes which allows you to easily style 
+			the list.</font></li>
+			<ul>
+				<li><font style="font-size: 10pt" face="Tahoma">List mode - Grid 
+				mode - Slider mode</font></li>
+				<li><font style="font-size: 10pt" face="Tahoma">There are Three 
+				designs and you can shift between them as you like.</font></li>
+				<li><font style="font-size: 10pt" face="Tahoma">Every design has 
+				its own options to match your site needs.</font></li>
+				<li><font style="font-size: 10pt" face="Tahoma">You can change 
+				the image sizes or displaying modes, excerpt length, CSS3 
+				effects, use custom image field, etc..</font></li>
+			</ul>
+			<li><font style="font-size: 10pt; font-weight: 700" face="Tahoma">Customisable output: 
+			</font>
+			<ul>
+				<li><font style="font-size: 10pt" face="Tahoma">Display excerpts 
+				in post. You can select the length of the excerpt in words</font></li>
+				<li><font style="font-size: 10pt" face="Tahoma">Control on font 
+				size</font></li>
+				<li><font style="font-size: 10pt" face="Tahoma">Control on CSS3 
+				effects</font></li>
+				<li><font style="font-size: 10pt" face="Tahoma">Control on 
+				spacing between elements (rows or columns)</font></li>
+				<li><font style="font-size: 10pt" face="Tahoma">Control the 
+				thumbnail width &amp; height for every mode</font></li>
+				<li><font style="font-size: 10pt" face="Tahoma">Control on
+				<font style="font-size: 10pt">Slider Border effect</font></font></li>
+				<li><font face="Tahoma" size="2">Ability to show/hide images in 
+				the output list</font></li>
+				<li><font face="Tahoma" size="2">You can set a customized title 
+				for your output</font></li>
+				<li><font face="Tahoma" size="2">Control the posts limit you 
+				want to display</font></li>
+				<li><font face="Tahoma" size="2">Image resizing options (Crop - 
+				Resize) to control image's view</font></li>
+				<li><font face="Tahoma" size="2">Right To Left languages are 
+				supported</font></li>
+				<li><font face="Tahoma" size="2">You can get images from custom 
+				wordpress meta fields</font></li>
+				<li><font face="Tahoma" size="2">You have a list of CSS3 
+				(shadow) effect's to apply on elements</font></li>
+				<li><font face="Tahoma" size="2">You have a list of CSS3 
+				(radius) effect to apply on elements</font></li>
+			</ul></li>
+		</ul>
+		<p><font style="font-size: 10pt" face="Tahoma">This is the new version of&nbsp;Related Posts with Thumbnails (Premium) 
+		and you may have a notes</font></p>
+		<p><font style="font-size: 10pt" face="Tahoma">feel free to tell us with your notes as soon 
+		as you have any</font></p>
+		<p><font style="font-size: 10pt" face="Tahoma">thank you</font></div>
+<script>$("select").selectpicker({style: 'btn-hg btn-primary', menuStyle: 'dropdown-inverse'});</script>
+<p>	<input type="submit" value="     Save all Settings     " name="B4" class="btn btn-success"></p>
 </div><!--SimpleTabs End-->
 </form></div>
