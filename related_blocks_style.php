@@ -234,6 +234,8 @@ $image_resizing = $aio_related_posts_settings['image_resizing'];
 	<?php echo aio_get_text_align();?>
 	
 	<?php echo aio_get_direction();?>
+	
+	<?php echo aio_get_float();?>
 }
 
 .related_posts_list_main_content p{
