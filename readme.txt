@@ -2,7 +2,7 @@
 Contributors: wp-buy
 Tags: related posts,related entries, similar posts, related articles, related,simple related posts,best related posts,seo related,all in one
 Requires at least: 2.9
-Tested up to: 3.9.2
+Tested up to: 4.0.1
 Stable tag: trunk
 
 == Description ==
